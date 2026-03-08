@@ -1,0 +1,15 @@
+@use './font_almarai.scss';
+@use './font_red_rose.scss';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+body{
+    height: 100vh;
+    font-family: 'Almarai';
+    color: white;
+}
