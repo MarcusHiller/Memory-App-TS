@@ -2,14 +2,20 @@
 @use './font_red_rose.scss';
 
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
 }
 
 
-body{
+body {
     height: 100vh;
     font-family: 'Almarai';
     color: white;
+}
+
+
+button {
+    background: none;
+    border: none;
 }
