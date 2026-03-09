@@ -5,7 +5,6 @@
 .start-screen {
     @include mx.size-scaling($ht: 100%);
     @include mx.flex-center($gap: 40px);
-
     >img {
         @include mx.position-offset($lt: 0px, $bo: 20px);
     }
@@ -14,11 +13,10 @@
 
 .start-headline {
     >p {
-        font-size: 48px;
+        @include mx.font-design($fz:40px, $fw:700);
     }
-
     >h1 {
-        font-size: 140px;
+        @include mx.font-design($fz:140px, $fw:700);
     }
 }
 
@@ -28,21 +26,19 @@
     @include mx.flex-center(row, 20px);
     background-color: co.$start-bt;
     color: co.$font-co-dark;
-
     &:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-
-    >img {
-        @include mx.size-scaling(44px, 32px);
-
-        &:hover {
-            transform: rotate(15deg);
+        img:first-child {
+            transform: rotate(-22deg);
         }
+        transform: scale(1.1);
     }
-
-    >button {
+    >img:first-child {
+        @include mx.size-scaling(44px, 32px);
+    }
+    >img:last-child {
+        @include mx.size-scaling(33px);
+    }
+    >p {
         @include mx.size-scaling(85px, 50px);
         @include mx.font-design($fz:40px, $fw:700); 
     }
