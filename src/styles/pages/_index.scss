@@ -1,28 +1,21 @@
-.start-screen {
-    height: 100%;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 40px;
+@use '../abstract/mixin' as mx;
+@use '../abstract/colors' as co;
 
+
+.start-screen {
+    @include mx.size-scaling($ht: 100%);
+    @include mx.flex-center($gap: 40px);
     >img {
-        position: absolute;
-        left: 0;
-        bottom: 20px;
-        z-index: 0;
+        @include mx.position-offset($lt: 0px, $bo: 20px);
     }
 }
 
 
 .start-headline {
-
     >p {
         text-align: start !important;
         font-size: 48px;
     }
-
     >h1 {
         font-size: 140px;
         font-family: 'Red Rose';
@@ -31,36 +24,22 @@
 
 
 .btn-play {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F0EA6E;
-    width: 250;
-    height: 98;
-    padding: 24px;
-    gap: 20px;
-    &:hover{
+    @include mx.size-scaling(250px, 98px, 24px);
+    @include mx.flex-center(row, 20px);
+    background-color: co.$start-bt;
+    &:hover {
         transform: scale(1.1);
         cursor: pointer;
     }
-
     >img {
-        width: 44;
-        height: 32;
-        opacity: 1;
-        &:hover{
+        @include mx.size-scaling(44px, 32px);
+        &:hover {
             transform: rotate(15deg);
         }
     }
-
     >button {
-        width: 85px;
-        height: 50px;
-        font-size: 40px;
-        font-family: 'Red Rose';
-        font-weight: 700;
-        font-style: Bold;
-        font-size: 40px;
+        @include mx.size-scaling(85px, 50px);
+        @include mx.font-design($fz:40px, $fw:700, $ffam:auto, $fsty:Bold);
         color: black;
     }
 }
