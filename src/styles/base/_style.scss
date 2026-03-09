@@ -1,5 +1,6 @@
 @use './font_almarai.scss';
 @use './font_red_rose.scss';
+@use '../abstract/colors' as co;
 
 
 * {
@@ -11,11 +12,11 @@
 body {
     height: 100vh;
     font-family: 'Almarai';
-    color: white;
+    color: co.$font-co-light;
+    background: co.$grey-bg;
 }
 
 
 button {
-    background: none;
-    border: none;
+    all: unset;
 }
