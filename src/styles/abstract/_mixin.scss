@@ -1,0 +1,32 @@
+@mixin flex-center($fd: column, $gap: 0px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $fd;
+    gap: $gap;
+}
+
+
+@mixin size-scaling($wh: auto, $ht: auto, $pd: 0px) {
+    width: $wh;
+    height: $ht;
+    padding: $pd;
+}
+
+
+@mixin position-offset($po: absolute, $top: auto, $lt: auto, $rt: auto, $bo: auto, $zi: 0) {
+    position: $po;
+    top: $top;
+    left: $lt;
+    right: $rt;
+    bottom: $bo;
+    z-index: $zi;
+}
+
+
+@mixin font-design($fz:16px, $fw:300, $ffam:auto, $fsty:auto) {
+    font-size: $fz;
+    font-weight: $fw;
+    font-family: $ffam;
+    font-style: $fsty;
+}
