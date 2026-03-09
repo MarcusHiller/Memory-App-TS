@@ -1,3 +1,20 @@
+$breakpoints: (
+    zero:0px,
+    sm:380px,
+    md:560px,
+    lg:740px,
+    xl:920px,
+    xxl:1100px,
+);
+
+
+@mixin respond($size){
+    @media screen and (max-width: map-get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+
 @mixin flex-center($fd: column, $gap: 0px) {
     display: flex;
     justify-content: center;
