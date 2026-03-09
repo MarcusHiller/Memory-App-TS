@@ -24,9 +24,8 @@
 }
 
 
-@mixin font-design($fz:16px, $fw:300, $ffam:auto, $fsty:auto) {
+@mixin font-design($fz:16px, $fw:300, $ffam:null) {
     font-size: $fz;
     font-weight: $fw;
     font-family: $ffam;
-    font-style: $fsty;
 }
