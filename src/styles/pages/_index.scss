@@ -5,6 +5,7 @@
 .start-screen {
     @include mx.size-scaling($ht: 100%);
     @include mx.flex-center($gap: 40px);
+
     >img {
         @include mx.position-offset($lt: 0px, $bo: 20px);
     }
@@ -13,12 +14,11 @@
 
 .start-headline {
     >p {
-        text-align: start !important;
         font-size: 48px;
     }
+
     >h1 {
         font-size: 140px;
-        font-family: 'Red Rose';
     }
 }
 
@@ -27,19 +27,23 @@
     @include mx.size-scaling(250px, 98px, 24px);
     @include mx.flex-center(row, 20px);
     background-color: co.$start-bt;
+    color: co.$font-co-dark;
+
     &:hover {
         transform: scale(1.1);
         cursor: pointer;
     }
+
     >img {
         @include mx.size-scaling(44px, 32px);
+
         &:hover {
             transform: rotate(15deg);
         }
     }
+
     >button {
         @include mx.size-scaling(85px, 50px);
-        @include mx.font-design($fz:40px, $fw:700, $ffam:auto, $fsty:Bold);
-        color: black;
+        @include mx.font-design($fz:40px, $fw:700); 
     }
 }

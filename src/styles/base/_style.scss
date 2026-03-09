@@ -11,12 +11,22 @@
 
 body {
     height: 100vh;
-    font-family: 'Almarai';
     color: co.$font-co-light;
     background: co.$grey-bg;
+    font-family: 'Almarai';
+}
+
+
+h1 {
+    font-family: 'Red Rose';
 }
 
 
 button {
-    all: unset;
+    font-family: 'Red Rose';
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
 }
