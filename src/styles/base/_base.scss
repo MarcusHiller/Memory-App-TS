@@ -3,14 +3,7 @@
 @use '../abstract/colors' as co;
 
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-
 body {
-    height: 100vh;
     color: co.$font-co-light;
     background: co.$grey-bg;
     font-family: 'Almarai';
@@ -24,9 +17,6 @@ h1 {
 
 button {
     font-family: 'Red Rose';
-    appearance: none;
-    border: none;
-    background: none;
     cursor: pointer;
     color: inherit;
 }
