@@ -1,3 +1,7 @@
+@use 'sass:map';
+
+
+// boundary points
 $breakpoints: (
     zero:0px,
     sm:380px,
@@ -8,13 +12,15 @@ $breakpoints: (
 );
 
 
+// responsiv for media querry
 @mixin respond($size){
-    @media screen and (max-width: map-get($breakpoints, $size)) {
+    @media screen and (max-width: map.get($breakpoints, $size)) {
         @content;
     }
 }
 
 
+// Standard flex box for individual alignment
 @mixin flex-center($fd: column, $gap: 0px) {
     display: flex;
     justify-content: center;
@@ -24,6 +30,7 @@ $breakpoints: (
 }
 
 
+// size allocation for elements/containers
 @mixin size-scaling($wh: auto, $ht: auto, $pd: 0px) {
     width: $wh;
     height: $ht;
@@ -31,6 +38,7 @@ $breakpoints: (
 }
 
 
+// Precise positioning of elements
 @mixin position-offset($po: absolute, $top: auto, $lt: auto, $rt: auto, $bo: auto, $zi: 0) {
     position: $po;
     top: $top;
@@ -41,6 +49,7 @@ $breakpoints: (
 }
 
 
+// font design template
 @mixin font-design($fz:16px, $fw:300, $ffam:null) {
     font-size: $fz;
     font-weight: $fw;
