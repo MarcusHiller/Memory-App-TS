@@ -1,0 +1,85 @@
+@use '../abstract/mixin' as mx;
+@use '../abstract/colors' as co;
+
+
+/* .btn{
+    @include mx.flex-center(row, 20px);
+} */
+
+
+/* .btn-play{
+    background-color: co.$start-bt;
+    color: co.$font-co-dark;
+    &__img{
+        
+        --primary{
+            @include mx.size-scaling(44px, 32px);
+        }
+        --secondary{
+            @include mx.size-scaling(24px, 24px);
+        }
+    }
+    &__arrow{
+        @include mx.size-scaling(33px);
+    }
+    &__text{
+        --primary{
+            @include mx.font-design($fz: 40px, $fw: 700);
+        }
+        --secondary{
+            @include mx.font-design($fz: 20px, $fw: 700);
+        }
+    }
+    &:hover {
+        &__img {
+            transform: rotate(-22deg);
+        }
+        transform: scale(1.1);
+    }
+    &--primary{
+        @include mx.size-scaling(250px, 98px, 24px);
+    }
+} */
+
+
+.btn-play {
+    background-color: co.$start-bt;
+    color: co.$font-co-dark;
+
+    @include mx.flex-center(row, 20px);
+
+    &:hover {
+        transform: scale(1.1);
+
+        > .btn-play__img {
+            transform: rotate(-22deg);
+        }
+    }
+
+    &__img {
+        @include mx.size-scaling(44px, 32px);
+    }
+
+    &__arrow {
+        @include mx.size-scaling(33px);
+    }
+
+    &__text {
+        @include mx.font-design($fz: 40px, $fw: 700);
+    }
+
+    &--primary {
+        @include mx.size-scaling(250px, 98px, 24px);
+    }
+
+    &--secondary {
+
+        .btn-play__img {
+            @include mx.size-scaling(24px);
+        }
+
+        .btn-play__text {
+            @include mx.font-design($fz: 20px, $fw: 700);
+        }
+    }
+}
