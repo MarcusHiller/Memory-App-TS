@@ -2,7 +2,7 @@
 @use '../abstract/colors' as co;
 
 
-.start-screen {
+.start-page {
     @include mx.size-scaling($ht: 100%);
     @include mx.flex-center($gap: 40px);
 
@@ -22,24 +22,10 @@
 }
 
 
-.start-headline {
-    >p {
-        @include mx.font-design($fz: 40px, $fw: 700);
-
-        @include mx.respond(xxl) {
-            font-size: 32px;
-        }
-
-        @include mx.respond(lg) {
-            font-size: 24px;
-        }
-
-        @include mx.respond(md) {
-            font-size: 20px;
-        }
-    }
-
-    >h1 {
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    &__headline{
         @include mx.font-design($fz: 140px, $fw: 700);
 
         @include mx.respond(xxl) {
@@ -58,47 +44,19 @@
             font-size: 40px;
         }
     }
-}
-
-
-/* .btn-play {
-    @include mx.size-scaling(250px, 98px, 24px);
-    @include mx.flex-center(row, 20px);
-    background-color: co.$start-bt;
-    color: co.$font-co-dark;
-
-    &:hover {
-        img:first-child {
-            transform: rotate(-22deg);
-        }
-
-        transform: scale(1.1);
-    }
-
-    >img:first-child {
-        @include mx.size-scaling(44px, 32px);
-    }
-
-    >img:last-child {
-        @include mx.size-scaling(33px);
-    }
-
-    >p {
-        @include mx.size-scaling(85px, 50px);
+    &__text{
         @include mx.font-design($fz: 40px, $fw: 700);
 
+        @include mx.respond(xxl) {
+            font-size: 32px;
+        }
+
         @include mx.respond(lg) {
-            @include mx.font-design($fz: 24px, $fw: 700);
-            @include mx.size-scaling();
+            font-size: 24px;
+        }
+
+        @include mx.respond(md) {
+            font-size: 20px;
         }
     }
-
-    @include mx.respond(md) {
-        @include mx.size-scaling(220px, 80px, 12px);
-    }
-
-    @include mx.respond(sm) {
-        @include mx.size-scaling(180px, 70px, 8px);
-        gap: 12px;
-    }
-} */
+}
