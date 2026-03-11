@@ -3,11 +3,11 @@
 
 
 .start-page {
-    @include mx.size-scaling($ht: 100%);
+    @include mx.size-scaling($ht: 100%, $pd: 0px max(0px, calc(50% - 960px)));
     @include mx.flex-center($gap: 40px);
 
     >img {
-        @include mx.position-offset($lt: 0px, $bo: 20px);
+        @include mx.position-offset($lt: clamp(0px, calc(50% - 960px), 100vw), $bo: 20px);
 
         @include mx.respond(xxl) {
             @include mx.size-scaling(400px, 300px);
@@ -25,9 +25,22 @@
 .start-screen {
     display: flex;
     flex-direction: column;
-    &__headline{
+
+    &__headline {
         @include mx.font-design($fz: 140px, $fw: 700);
 
+    }
+
+    &__text {
+        @include mx.font-design($fz: 40px, $fw: 700);
+
+    }
+}
+
+
+// Responsiv
+.start-screen {
+    &__headline {
         @include mx.respond(xxl) {
             font-size: 100px;
         }
@@ -44,9 +57,8 @@
             font-size: 40px;
         }
     }
-    &__text{
-        @include mx.font-design($fz: 40px, $fw: 700);
 
+    &__text {
         @include mx.respond(xxl) {
             font-size: 32px;
         }
