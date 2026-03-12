@@ -23,6 +23,15 @@ h1 {
 }
 
 
+h4{
+    @include mx.font-design($fz:24px, $fw:700);
+}
+
+
+li{
+    @include mx.font-design($fz:20px, $fw:400);
+}
+
 button {
     font-family: 'Red Rose';
     cursor: pointer;

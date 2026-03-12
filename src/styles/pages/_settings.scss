@@ -1,26 +1,28 @@
 @use '../abstract/mixin' as mx;
 @use '../abstract/colors' as co;
 
-body{
+body {
     background-color: aliceblue;
 }
-.main-content{
+
+.main-content {
     position: relative;
     background-color: red;
-    @include mx.size-scaling($wh:1103px, $ht:539px);
+    @include mx.size-scaling($wh: 1103px, $ht: 539px);
     color: co.$font-co-dark;
 }
 
 
-.title{
-    @include mx.position-offset($top:-129px, $lt:3px);
-    >h2{
-        @include mx.font-design($fz:54px, $fw:700, $ffam:'Red Rose')
+.title {
+    @include mx.position-offset($top: -129px, $lt: 3px);
+
+    >h2 {
+        @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose')
     }
 }
 
-.setting{
-    @include mx.position-offset($top:0px, $lt:0px);
+.setting {
+    @include mx.position-offset($top: 0px, $lt: 0px);
     display: flex;
     justify-content: space-between;
     width: 1103px;
@@ -28,12 +30,69 @@ body{
 }
 
 
-.player-settings{
-    @include mx.position-offset($bo:0px, $lt:0px);
+.player-settings {
+    @include mx.position-offset($bo: 0px, $lt: 0px);
 }
 
 
-.game-play{
-    @include mx.position-offset($bo:0px, $rt:0px);
+.setting-list {
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__img {
+        @include mx.size-scaling($wh: 32px, $ht: 32px);
+    }
+}
+
+
+.setting-option {
+    &__input-field {
+        @include mx.flex-center(row, 8px);
+        position: relative;
+    }
+
+    &__input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &:checked + .setting-option__radio{
+            transform: translate(-50%, -50%) scale(1);
+        }
+        &:checked ~ .setting-option__marker{
+            display: block;
+        }
+    }
+
+    &__radio {
+        @include mx.size-scaling($wh: 16px, $ht: 16px);
+        border: 2px solid black;
+        border-radius: 50%;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+    }
+    &--marker{
+        margin-left: auto;
+        width: 20px;
+        display: none;
+    }
+}
+
+
+.game-play {
+    @include mx.position-offset($bo: 0px, $rt: 0px);
     @include mx.flex-center(row);
 }

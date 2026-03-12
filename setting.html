@@ -14,7 +14,10 @@
         </header>
         <section class="setting">
             <div class="setting-list">
-                <h4 class="setting-list__title">Game themes</h4>
+                <div class="setting-list__header">
+                    <img class="setting-list__img" src="assets/img/settings/palette.svg" alt="">
+                    <h4 class="setting-list__title">Game themes</h4>
+                </div>
                 <ul class="setting-list__content">
                     <li>Code vibes theme</li>
                     <li>Gaming theme</li>
@@ -27,16 +30,29 @@
         </section>
         <aside class="player-settings">
             <div class="setting-list">
-                <h4 class="setting-list__title">Choose Player</h4>
+                <div class="setting-list__header">
+                    <img class="setting-list__img" src="assets/img/settings/chess_pawn.svg" alt="">
+                    <h4 class="setting-list__title">Choose player</h4>
+                </div>
                 <ul class="setting-list__content">
                     <li>orange</li>
                     <li>blue</li>
                 </ul>
             </div>
             <div class="setting-list">
-                <h4 class="setting-list__title">Bord size</h4>
+                <div class="setting-list__header">
+                    <img class="setting-list__img" src="assets/img/settings/style.svg" alt="">
+                    <h4 class="setting-list__title">Border size</h4>
+                </div>
                 <ul class="setting-list__content">
-                    <li>16 cards</li>
+                    <li class="setting-option">
+                        <label class="setting-option__input-field" for="">
+                            <input class="setting-option__input" type="radio">
+                            <span class="setting-option_radio"></span>
+                            <span class="setting-option__text">16 cards</span>
+                            <img class="setting-option__marker" src="assets/img/settings/selection_marker_yellow.svg" alt="visible selection">
+                        </label>
+                    </li>
                     <li>24 cards</li>
                     <li>32 cards</li>
                 </ul>
