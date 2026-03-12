@@ -3,7 +3,7 @@
     /* Sprache & Zielumgebung */
     "target": "ESNext",                  // moderne Syntax, gut für Browser + Vite
     "lib": ["ESNext", "DOM"],            // Browser-APIs und moderne JS-Funktionen
-
+    "types": ["node"],                 // Node.js-Typen für Entwicklungs-Tools und Vite
 
     /* Module & Auflösung */
     "module": "ESNext",                  // ES Modules für Vite/Rollup
