@@ -1,13 +1,14 @@
 @use '../abstract/mixin' as mx;
 @use '../abstract/colors' as co;
+@use '../base/reset';
 
 body {
-    background-color: aliceblue;
+    background-color: white;
 }
 
 .main-content {
     position: relative;
-    background-color: red;
+    background-color: white;
     @include mx.size-scaling($wh: 1103px, $ht: 539px);
     color: co.$font-co-dark;
 }
@@ -17,7 +18,7 @@ body {
     @include mx.position-offset($top: -129px, $lt: 3px);
 
     >h2 {
-        @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose')
+        @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose');
     }
 }
 
@@ -26,7 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 1103px;
-    background-color: aqua;
+    background-color: white;
 }
 
 
@@ -45,19 +46,25 @@ body {
     &__img {
         @include mx.size-scaling($wh: 32px, $ht: 32px);
     }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
 
 .setting-option {
     &__input-field {
-        @include mx.flex-center(row, 8px);
+        display: flex;
+        align-items: center;
         position: relative;
+        gap: 8px;
+        padding-left: 44px;
     }
 
     &__input {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        
         &:checked + .setting-option__radio{
             transform: translate(-50%, -50%) scale(1);
         }
@@ -66,8 +73,12 @@ body {
         }
     }
 
+    &__text{
+        @include mx.font-design($fz: 20px, $fw: 400)
+    }
+
     &__radio {
-        @include mx.size-scaling($wh: 16px, $ht: 16px);
+        @include mx.size-scaling($wh: 20px, $ht: 20px);
         border: 2px solid black;
         border-radius: 50%;
 
@@ -86,13 +97,14 @@ body {
     }
     &--marker{
         margin-left: auto;
-        width: 20px;
-        display: none;
+        width: 41px;
+        display: block;
     }
 }
 
 
 .game-play {
+    background-color: red;
     @include mx.position-offset($bo: 0px, $rt: 0px);
     @include mx.flex-center(row);
 }
