@@ -18,9 +18,11 @@ body {
     @include mx.position-offset($top: -129px, $lt: 3px);
     @include mx.size-scaling($wh: 251px, $ht: 67px);
     text-align: center;
+
     >h2 {
         @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose');
-        &:after{
+
+        &:after {
             content: url(../../../public/assets/img/settings/underline_yellow.svg);
             position: absolute;
             left: -10px;
@@ -55,7 +57,8 @@ body {
     &__img {
         @include mx.size-scaling($wh: 32px, $ht: 32px);
     }
-    &__content{
+
+    &__content {
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -64,26 +67,35 @@ body {
 
 
 .setting-option {
+
     &__input-field {
         display: flex;
         align-items: center;
         position: relative;
         gap: 8px;
         padding-left: 44px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__input {
-        
-        &:checked + .setting-option__radio{
+        &:checked+.setting-option__radio {
             transform: translate(-50%, -50%) scale(1);
         }
-        &:checked ~ .setting-option__marker{
+
+        &:checked~.setting-option__marker {
             display: block;
         }
     }
 
-    &__text{
-        @include mx.font-design($fz: 20px, $fw: 400)
+    &__text {
+        @include mx.font-design($fz: 20px, $fw: 400);
+
+        &:checked {
+            font-size: 700;
+        }
     }
 
     &__radio {
@@ -104,7 +116,8 @@ body {
         }
 
     }
-    &--marker{
+
+    &--marker {
         margin-left: auto;
         width: 41px;
         display: block;
@@ -115,9 +128,10 @@ body {
 .game-play {
     background-color: #F6F6F6;
     @include mx.position-offset($bo: 0px, $rt: 0px);
-    @include mx.flex-center(row, $gap:16px);
-    @include mx.size-scaling($ht:81px, $pd:14px 20px );
-    &__text{
+    @include mx.flex-center(row, $gap: 16px);
+    @include mx.size-scaling($ht: 81px, $pd: 14px 20px);
+
+    &__text {
         @include mx.font-design($fz: 20px, $fw: 400);
     }
 }
