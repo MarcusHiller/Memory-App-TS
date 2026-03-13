@@ -16,9 +16,16 @@ body {
 
 .title {
     @include mx.position-offset($top: -129px, $lt: 3px);
-
+    @include mx.size-scaling($wh: 251px, $ht: 67px);
+    text-align: center;
     >h2 {
         @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose');
+        &:after{
+            content: url(../../../public/assets/img/settings/underline_yellow.svg);
+            position: absolute;
+            left: -10px;
+            transform: translateY(50%);
+        }
     }
 }
 
@@ -33,6 +40,7 @@ body {
 
 .player-settings {
     @include mx.position-offset($bo: 0px, $lt: 0px);
+    @include mx.flex-center($gap: 54px);
 }
 
 
@@ -41,6 +49,7 @@ body {
         display: flex;
         align-items: center;
         gap: 8px;
+        margin-bottom: 16px;
     }
 
     &__img {
