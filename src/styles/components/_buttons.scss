@@ -33,6 +33,7 @@
 
 .btn-play:hover {
     transform: scale(1.1);
+
     >.btn-play__arrow {
         display: none;
 
@@ -51,10 +52,11 @@
 .btn-start {
     background-color: co.$start-bt;
     color: co.$font-co-dark;
-    @include mx.size-scaling($pd: 24px);
+    gap: 8px;
+    @include mx.size-scaling($pd: 14px 20px);
 
     &__img {
-        @include mx.size-scaling(20px, 16px);
+        @include mx.size-scaling(20px);
     }
 
     &__text {
@@ -65,7 +67,20 @@
 
 .btn-start:hover {
     transform: scale(1.1);
+
     >.btn-start__img {
         transform: rotate(-22deg);
+    }
+}
+
+.btn-start--disabled {
+    background: #DBDBD6;
+    cursor: no-drop;
+
+    &:hover {
+        transform: scale(1);
+        >.btn-start__img {
+            transform: rotate(0deg);
+        }
     }
 }

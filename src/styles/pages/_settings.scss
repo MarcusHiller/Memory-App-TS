@@ -104,7 +104,11 @@ body {
 
 
 .game-play {
-    background-color: red;
+    background-color: #F6F6F6;
     @include mx.position-offset($bo: 0px, $rt: 0px);
-    @include mx.flex-center(row);
+    @include mx.flex-center(row, $gap:16px);
+    @include mx.size-scaling($ht:81px, $pd:14px 20px );
+    &__text{
+        @include mx.font-design($fz: 20px, $fw: 400);
+    }
 }
