@@ -42,11 +42,15 @@ body {
 
 .player-settings {
     @include mx.position-offset($bo: 0px, $lt: 0px);
-    @include mx.flex-center($gap: 54px);
+    //@include mx.flex-center($gap: 54px);
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
 }
 
 
 .setting-list {
+    
     &__header {
         display: flex;
         align-items: center;
@@ -66,61 +70,37 @@ body {
 }
 
 
-.setting-option {
-
+.setting-element {
     &__input-field {
         display: flex;
         align-items: center;
-        position: relative;
         gap: 8px;
         padding-left: 44px;
-
         &:hover {
             cursor: pointer;
         }
     }
 
-    &__input {
-        &:checked+.setting-option__radio {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        &:checked~.setting-option__marker {
-            display: block;
+    &__circle-img{
+        @include mx.size-scaling($wh: 20px, $ht: 20px);
+        &--disabled{
+            display: none;
         }
     }
 
     &__text {
-        @include mx.font-design($fz: 20px, $fw: 400);
-
-        &:checked {
-            font-size: 700;
+        @include mx.font-design($fz: 20px, $fw: 700);
+        &--disabled{
+            font-weight: 400;
         }
     }
 
-    &__radio {
-        @include mx.size-scaling($wh: 20px, $ht: 20px);
-        border: 2px solid black;
-        border-radius: 50%;
-
-        &::after {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: black;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-        }
-
-    }
-
-    &--marker {
-        margin-left: auto;
-        width: 41px;
+    &__img-flag{
+        @include mx.size-scaling($wh: 41px);
         display: block;
+        &--disabled{
+            display: none;
+        }
     }
 }
 
