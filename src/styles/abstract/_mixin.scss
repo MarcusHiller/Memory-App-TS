@@ -23,9 +23,19 @@ $breakpoints: (
 // Standard flex box for individual alignment
 @mixin flex-center($fd: column, $gap: 0px) {
     display: flex;
+    flex-direction: $fd;
     justify-content: center;
     align-items: center;
+    gap: $gap;
+}
+
+
+// fully customizable flex box 
+@mixin flex-costom($fd: column, $jc:auto, $ai:auto, $gap: 0px) {
+    display: flex;
     flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
     gap: $gap;
 }
 

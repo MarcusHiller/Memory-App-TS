@@ -2,13 +2,13 @@
 @use '../abstract/colors' as co;
 @use '../base/reset';
 
-body {
+.page-color {
     background-color: white;
+    color: co.$font-co-dark;
 }
 
 .main-content {
     position: relative;
-    background-color: white;
     @include mx.size-scaling($wh: 1103px, $ht: 539px);
     color: co.$font-co-dark;
 }
@@ -24,8 +24,7 @@ body {
 
         &:after {
             content: url(../../../public/assets/img/settings/underline_yellow.svg);
-            position: absolute;
-            left: -10px;
+            @include mx.position-offset($po: absolute, $lt:-10px);
             transform: translateY(50%);
         }
     }
@@ -33,28 +32,21 @@ body {
 
 .setting {
     @include mx.position-offset($top: 0px, $lt: 0px);
-    display: flex;
-    justify-content: space-between;
+    @include mx.flex-costom($fd:row,$jc:space-between);
     width: 1103px;
-    background-color: white;
 }
 
 
 .player-settings {
     @include mx.position-offset($bo: 0px, $lt: 0px);
-    //@include mx.flex-center($gap: 54px);
-    display: flex;
-    flex-direction: column;
-    gap: 54px;
+    @include mx.flex-costom($gap:54px);
 }
 
 
 .setting-list {
     
     &__header {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        @include mx.flex-costom($fd:row,$ai:center, $gap:8px);
         margin-bottom: 16px;
     }
 
@@ -63,18 +55,14 @@ body {
     }
 
     &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        @include mx.flex-costom($gap:12px);
     }
 }
 
 
 .setting-element {
     &__input-field {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        @include mx.flex-costom($fd:row,$ai:center, $gap:8px);
         padding-left: 44px;
         &:hover {
             cursor: pointer;
