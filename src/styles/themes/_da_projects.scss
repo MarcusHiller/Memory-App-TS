@@ -1,0 +1,45 @@
+.theme {
+
+
+
+    &__code {
+        //main
+        --color-bg-main: #303131;
+        --color-bg-header: #303131;
+        --color-text: #FFFFFF;
+        // exit btn
+        --color-bg-btn: #86E9D633;
+        --color-text-btn: #FFFFFF;
+        //modal
+        --color-bg-modal: #FFFFFF;
+        --color-text-modal: #303131;
+        --color-btn-modal-bg-back: #66CFBC;
+        --color-btn-modal-text-back: #FFFFFF;
+        --color-btn-modal-bg-exit: #86E9D624;
+        --color-btn-modal-text-exit: #4DD5BC;
+        // player field
+        --color-bg-player: #86E9D624;
+        --color-text-player-bl: #2BB1FF;
+        --color-text-player-or: #F58E39;
+
+
+        /* --color-bg-btn
+    --color-text-btn
+    --color-text-hover
+    --color-bg-btn-primary
+    --color-text-btn-primary
+    --color-bg-img
+    --color-bg-cards
+    --font-main
+    --border-radius */
+    }
+
+
+    /* &__games {}
+
+
+    &__da {}
+
+
+    &__food {} */
+}
