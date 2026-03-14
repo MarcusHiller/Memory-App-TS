@@ -14,7 +14,7 @@ body {
 
 main{
     @include mx.size-scaling($ht: 100%, $pd: 0px max(0px, calc(50% - 960px)));
-    @include mx.flex-center();
+    //@include mx.flex-center();
 }
 
 
