@@ -1,45 +1,84 @@
 .theme {
 
-
-
     &__code {
-        //main
-        --color-bg-main: #303131;
-        --color-bg-header: #303131;
-        --color-text: #FFFFFF;
-        // exit btn
-        --color-bg-btn: #86E9D633;
-        --color-text-btn: #FFFFFF;
-        //modal
-        --color-bg-modal: #FFFFFF;
-        --color-text-modal: #303131;
-        --color-btn-modal-bg-back: #66CFBC;
-        --color-btn-modal-text-back: #FFFFFF;
-        --color-btn-modal-bg-exit: #86E9D624;
-        --color-btn-modal-text-exit: #4DD5BC;
-        // player field
-        --color-bg-player: #86E9D624;
-        --color-text-player-bl: #2BB1FF;
-        --color-text-player-or: #F58E39;
+        --surface-app: #303131; // background
+        --text-app-primary: ;
+        --text-app-secondary: ;
 
+        // card design
+        --surface-cover: ; // card cover
+        --surface-front: ;
 
-        /* --color-bg-btn
-    --color-text-btn
-    --color-text-hover
-    --color-bg-btn-primary
-    --color-text-btn-primary
-    --color-bg-img
-    --color-bg-cards
-    --font-main
-    --border-radius */
+        // modal
+        --surface-modal: ;
+        --text-modal-primary: ;
+        --text-modal-secondary: ;
+        --modal-btn-back: ;
+        
+        --surface-game-info: ; //Anzeige feld von spielinformationen player spielstand aktions btn
+        --border: 1px solid ;
+        --border-radius: 15px;
+        --font-fam: '';
+
+        // Player
+        --bg-player: #86E9D624;
+        --text-player-bl: #2BB1FF;
+        --text-player-or: #F58E39;
+
+        --test-text: red;
+        --test-bg: rgb(0, 4, 255);
+        --test-bg-secend: brown;
+
     }
 
+    &__dark {
+        --surface-app: #303131; // background
+        --text-app-primary: #FFFFFF;
+        --text-app-secondary: red;
 
-    /* &__games {}
+        // card design
+        --surface-cover: linear-gradient(212.26deg, #4DD5BC 29.42%, #286F62 123.94%); // card cover
+        --surface-front:  #E8F3F0;
+        --surface-match: #FFFFFF;
+        --border-match: 5px solid #4DD5BC;
+        --card-shadow: 6px 6px 8px 0px #4DD5BC4D;
+        --card-width: 120px;
+        --card-height: 120px;
 
 
-    &__da {}
+
+        // modal
+        --surface-modal: #FFFFFF;
+        --text-modal-primary: #303131;
+        --text-modal-secondary: ;
+        // modal btn
+        --text-modal-btn-back: #FFFFFF;
+        --text-modal-btn-quit-text: #4DD5BC;
+        --surface-modal-btn-back: #66CFBC;
+        --surface-modal-btn-quit: #86E9D624;
+
+        
+        --surface-game-info: ; //Anzeige feld von spielinformationen player spielstand aktions btn
+        --border: 1px solid ;
+        --border-radius: 15px;
+        --font-fam: '';
+
+        // Player
+        --bg-player: #86E9D624;
+        --text-player-bl: #2BB1FF;
+        --text-player-or: #F58E39;
 
 
-    &__food {} */
+
+        --test-text: yellow;
+        --test-bg: grey;
+        --test-bg-secend: green;
+    }
 }
+
+.btn-test {
+    color: var(--test-text);
+    background-color: var(--test-bg);
+}
+
+
