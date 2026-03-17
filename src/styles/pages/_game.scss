@@ -1,11 +1,45 @@
 @use '../../../src/styles/themes/da_projects';
 @use '../abstract/mixin' as mx;
+@use '../components/buttons' as btn;
+
+.alignment {
+    display: flex;
+    justify-content: center;
+}
 
 
-.card{
+.game-board {
+    margin-top: 41px;
+    @include mx.size-scaling(1217px);
+}
+
+
+.display-field {
+    @include mx.size-scaling($ht: 62px);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.display-player {
+    display: flex;
+    align-items: center;
+    width: 98;
+    height: 28;
+    gap: 4px;
+}
+
+
+.game-info {
+    display: flex;
+    gap: 170px;
+}
+
+
+.card {
     height: 200px;
     width: 200px;
-    background-image:  var(--surface-cover); 
+    background-image: var(--surface-cover);
     @include mx.size-scaling(120px, 120px);
     @include mx.flex-center();
 
