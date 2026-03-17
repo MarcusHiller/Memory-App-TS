@@ -1,6 +1,6 @@
 .theme {
 
-    &__code {
+    &__dark {
         --surface-app: #303131; // background
         --text-app-primary: ;
         --text-app-secondary: ;
@@ -14,9 +14,9 @@
         --text-modal-primary: ;
         --text-modal-secondary: ;
         --modal-btn-back: ;
-        
+
         --surface-game-info: ; //Anzeige feld von spielinformationen player spielstand aktions btn
-        --border: 1px solid ;
+        --border: 1px solid;
         --border-radius: 15px;
         --font-fam: '';
 
@@ -31,21 +31,19 @@
 
     }
 
-    &__dark {
+    &__code {
         --surface-app: #303131; // background
         --text-app-primary: #FFFFFF;
         --text-app-secondary: red;
 
         // card design
         --surface-cover: linear-gradient(212.26deg, #4DD5BC 29.42%, #286F62 123.94%); // card cover
-        --surface-front:  #E8F3F0;
+        --surface-front: #E8F3F0;
         --surface-match: #FFFFFF;
         --border-match: 5px solid #4DD5BC;
         --card-shadow: 6px 6px 8px 0px #4DD5BC4D;
         --card-width: 120px;
         --card-height: 120px;
-
-
 
         // modal
         --surface-modal: #FFFFFF;
@@ -57,22 +55,29 @@
         --surface-modal-btn-back: #66CFBC;
         --surface-modal-btn-quit: #86E9D624;
 
-        
+
         --surface-game-info: ; //Anzeige feld von spielinformationen player spielstand aktions btn
-        --border: 1px solid ;
+        --border: 1px solid;
         --border-radius: 15px;
         --font-fam: '';
 
-        // Player
+        // Player display field
         --bg-player: #86E9D624;
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
 
-
-
-        --test-text: yellow;
-        --test-bg: grey;
-        --test-bg-secend: green;
+        // btn exit
+        --text-btn-exit: #FFFFFF;
+        --surface-btn-exit: #86E9D633;
+        --border-btn-exit: 1px solid #4DD5BC;
+        --border-btn-exit-hov: inset 0px 0px 0px 3px #4DD5BC, 4px 4px 6px 0px #4DD5BC33;
+        --border-radius-btn-exit: 0px;
+        --font-weight-btn-exit: 700;
+        --font-fam-btn-exit: 'Red Rose';
+        --font-site-btn-exit: 24px;
+        --padding-btn-exit: 16px 24px;
+        --size-width-btn-exit: 30px;
+        --size-height-btn-exit: 30px;
     }
 }
 
@@ -80,5 +85,3 @@
     color: var(--test-text);
     background-color: var(--test-bg);
 }
-
-

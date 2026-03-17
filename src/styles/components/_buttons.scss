@@ -1,13 +1,13 @@
 @use '../abstract/mixin' as mx;
 @use '../abstract/colors' as co;
-
+@use '../themes/da_projects';
 
 .btn {
     @include mx.flex-center(row, 20px);
 }
 
 
-// Nur für startseite
+// for startscreen
 .btn-play {
     background-color: co.$start-bt;
     color: co.$font-co-dark;
@@ -48,7 +48,7 @@
 }
 
 
-// button setting seite
+// button setting page
 .btn-start {
     background-color: co.$start-bt;
     color: co.$font-co-dark;
@@ -83,4 +83,25 @@
             transform: rotate(0deg);
         }
     }
+}
+
+
+// Game page
+.btn-exit {
+    @include mx.size-scaling($pd:var(--padding-btn-exit));
+    gap: 10px;
+    background-color: var(--surface-btn-exit);
+    color: var(--text-btn-exit);
+    border: var(--border-btn-exit);
+    border-radius: var(--border-radius-btn-exit);
+    &__img{
+        @include mx.size-scaling(var(--size-width-btn-exit), var(--size-height-btn-exit) );
+    }
+    &__text{
+        @include mx.font-design(var(--font-site-btn-exit),var(--font-weight-btn-exit))
+    }
+    &:hover{
+        box-shadow: var(--border-btn-exit-hov);
+    }
+    
 }
