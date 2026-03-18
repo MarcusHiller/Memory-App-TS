@@ -7,8 +7,8 @@
 body {
     color: co.$font-co-light;
     background: co.$grey-bg;
-    font-family: 'Almarai';
-    @include mx.flex-center();
+    //font-family: 'Almarai';
+    //@include mx.flex-center();
 }
 
 
@@ -33,7 +33,7 @@ li{
 }
 
 button {
-    font-family: 'Red Rose';
+    //font-family: 'Red Rose';
     cursor: pointer;
     color: inherit;
 }

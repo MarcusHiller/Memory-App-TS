@@ -1,6 +1,6 @@
 @use '../../../src/styles/themes/da_projects';
 @use '../abstract/mixin' as mx;
-@use '../components/buttons' as btn;
+
 
 .alignment {
     display: flex;
@@ -15,19 +15,49 @@
 
 
 .display-field {
+    background-color: var(--surface-header);
     @include mx.size-scaling($ht: 62px);
     display: flex;
     justify-content: space-between;
 }
 
 
-.display-player {
-    display: flex;
-    align-items: center;
-    width: 98;
-    height: 28;
-    gap: 4px;
+.status-player{
+    @include mx.flex-costom($fd:row, $ai:center, $gap:20px);
+    @include mx.size-scaling($pd:17px 20px);
+    background-color: #86E9D633;
+
 }
+
+
+.display-player {
+    @include mx.flex-costom($fd:row, $ai:var(--alignment-current-player), $gap:8px);
+    height: 28;
+    &__text{
+        @include mx.font-design(26px, 400);
+    }
+    &__img{
+        @include mx.size-scaling(29px, 24px);
+    }
+}
+
+
+.player{
+    @include mx.flex-costom($fd:row, $ai:center, $gap:4px);
+    color: var(--);
+    &__img{
+        @include mx.size-scaling(24px, 20px);
+    }
+    &__one{
+        @include mx.font-design(24px, 700);
+        color: var(--text-player-bl);
+    }
+    &__two{
+        @include mx.font-design(24px, 700);
+        color: var(--text-player-or);
+    }
+}
+
 
 
 .game-info {

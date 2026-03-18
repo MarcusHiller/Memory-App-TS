@@ -35,6 +35,7 @@
         --surface-app: #303131; // background
         --text-app-primary: #FFFFFF;
         --text-app-secondary: red;
+        font-family: 'Almarai';
 
         // card design
         --surface-cover: linear-gradient(212.26deg, #4DD5BC 29.42%, #286F62 123.94%); // card cover
@@ -55,16 +56,20 @@
         --surface-modal-btn-back: #66CFBC;
         --surface-modal-btn-quit: #86E9D624;
 
+        // header
+        --surface-header: transparent;
 
-        --surface-game-info: ; //Anzeige feld von spielinformationen player spielstand aktions btn
-        --border: 1px solid;
-        --border-radius: 15px;
-        --font-fam: '';
-
-        // Player display field
-        --bg-player: #86E9D624;
+        // Game information display field
+        --surface-game-info: #86E9D633;
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
+        --border-game-ingo: 0px;
+        --border-radius-game-info: 0px; 
+
+
+        // Current player display field
+        
+        --alignment-current-player: end;
 
         // btn exit
         --text-btn-exit: #FFFFFF;
@@ -73,15 +78,10 @@
         --border-btn-exit-hov: inset 0px 0px 0px 3px #4DD5BC, 4px 4px 6px 0px #4DD5BC33;
         --border-radius-btn-exit: 0px;
         --font-weight-btn-exit: 700;
-        --font-fam-btn-exit: 'Red Rose';
+    
         --font-site-btn-exit: 24px;
         --padding-btn-exit: 16px 24px;
         --size-width-btn-exit: 30px;
         --size-height-btn-exit: 30px;
     }
-}
-
-.btn-test {
-    color: var(--test-text);
-    background-color: var(--test-bg);
 }
