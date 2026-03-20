@@ -22,47 +22,73 @@
 }
 
 
-.status-player{
-    @include mx.flex-costom($fd:row, $ai:center, $gap:20px);
-    @include mx.size-scaling($pd:17px 20px);
+.status-player {
+    @include mx.flex-costom($fd: row, $ai: center, $gap: 20px);
+    @include mx.size-scaling($pd: 17px 20px);
     background-color: #86E9D633;
 
 }
 
 
 .display-player {
-    @include mx.flex-costom($fd:row, $ai:var(--alignment-current-player), $gap:8px);
+    @include mx.flex-costom($fd: row, $ai: var(--alignment-current-player), $gap: 8px);
     height: 28;
-    &__text{
+
+    &__text {
         @include mx.font-design(26px, 400);
     }
-    &__img{
+
+    &__img {
         @include mx.size-scaling(29px, 24px);
     }
 }
 
 
-.player{
-    @include mx.flex-costom($fd:row, $ai:center, $gap:4px);
+.player {
+    @include mx.flex-costom($fd: row, $ai: center, $gap: 4px);
     color: var(--);
-    &__img{
+
+    &__img {
         @include mx.size-scaling(24px, 20px);
     }
-    &__one{
+
+    &__one {
         @include mx.font-design(24px, 700);
         color: var(--text-player-bl);
     }
-    &__two{
+
+    &__two {
         @include mx.font-design(24px, 700);
         color: var(--text-player-or);
     }
 }
 
 
-
 .game-info {
     display: flex;
     gap: 170px;
+}
+
+
+.playing-field {
+    margin-top: 60px;
+    display: grid;
+    
+    
+    justify-content: center;
+    &--grid-16{
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+    }
+    &--grid-24{
+        grid-template-columns: auto auto auto auto auto auto;
+        gap: 10px;
+    }
+    &--grid-36{
+        margin-top: 40px;
+        grid-template-columns: auto auto auto auto auto auto;
+        gap: 5px;
+    }
 }
 
 
@@ -73,4 +99,14 @@
     @include mx.size-scaling(120px, 120px);
     @include mx.flex-center();
 
+}
+
+
+.modal{
+    @include mx.flex-costom($fd: column, $jc:space-between, $ai:center, $gap: 0px);
+    @include mx.size-scaling(500px, 320px, 40px);
+    @include mx.font-design(32px, 700);
+    background-color: var(--surface-modal);
+    color: var(--text-modal-primary);
+    text-align: center;
 }

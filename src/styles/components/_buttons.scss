@@ -79,6 +79,7 @@
 
     &:hover {
         transform: scale(1);
+
         >.btn-start__img {
             transform: rotate(0deg);
         }
@@ -88,20 +89,48 @@
 
 // Game page
 .btn-exit {
-    @include mx.size-scaling($pd:var(--padding-btn-exit));
+    @include mx.size-scaling($pd: var(--padding-btn-exit));
     gap: 10px;
     background-color: var(--surface-btn-exit);
     color: var(--text-btn-exit);
     border: var(--border-btn-exit);
     border-radius: var(--border-radius-btn-exit);
-    &__img{
-        @include mx.size-scaling(var(--size-width-btn-exit), var(--size-height-btn-exit) );
+
+    &__img {
+        @include mx.size-scaling(var(--size-width-btn-exit), var(--size-height-btn-exit));
     }
-    &__text{
-        @include mx.font-design(var(--font-site-btn-exit),var(--font-weight-btn-exit))
+
+    &__text {
+        @include mx.font-design(var(--font-site-btn-exit), var(--font-weight-btn-exit))
     }
-    &:hover{
+
+    &:hover {
         box-shadow: var(--border-btn-exit-hov);
     }
-    
+}
+
+
+// modal
+.btn-back {
+    background-color: var(--surface-modal-btn-back);
+    color: var(--text-modal-btn-back);
+    @include mx.size-scaling($pd: var(--padding-btn-exit));
+    @include mx.font-design(20px, 700);
+    border: var(--border-btn-exit);
+    border-radius: var(--border-radius-btn-exit);
+}
+
+
+.btn-modal-exit {
+    @include mx.size-scaling($pd: var(--padding-btn-exit));
+    gap: 10px;
+    background-color: var(--surface-btn-exit);
+    color: var(--text-modal-btn-quit);
+    border: var(--border-btn-quit);
+    border-radius: var(--border-radius-btn-quit);
+
+    @include mx.font-design(var(--font-site-btn-exit), var(--font-weight-btn-exit));
+    &__hover {
+        box-shadow: var(--border-btn-exit-hov);
+    }
 }
