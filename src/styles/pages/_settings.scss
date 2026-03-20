@@ -3,9 +3,10 @@
 @use '../base/reset';
 
 
-.page-color {
+.body-setting {
     background-color: white;
     color: co.$font-co-dark;
+    @include mx.flex-center();
 }
 
 

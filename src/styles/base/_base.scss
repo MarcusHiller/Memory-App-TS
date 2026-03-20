@@ -7,14 +7,11 @@
 body {
     color: co.$font-co-light;
     background: co.$grey-bg;
-    //font-family: 'Almarai';
-    //@include mx.flex-center();
 }
 
 
 main{
     @include mx.size-scaling($ht: 100%, $pd: 0px max(0px, calc(50% - 960px)));
-    //@include mx.flex-center();
 }
 
 
@@ -32,8 +29,8 @@ li{
     @include mx.font-design($fz:20px, $fw:400);
 }
 
+
 button {
-    //font-family: 'Red Rose';
     cursor: pointer;
     color: inherit;
 }
