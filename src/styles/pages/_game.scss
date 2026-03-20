@@ -5,6 +5,7 @@
 .alignment {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 
@@ -73,18 +74,19 @@
 .playing-field {
     margin-top: 60px;
     display: grid;
-    
-    
     justify-content: center;
-    &--grid-16{
+
+    &--grid-16 {
         grid-template-columns: auto auto auto auto;
         gap: 10px;
     }
-    &--grid-24{
+
+    &--grid-24 {
         grid-template-columns: auto auto auto auto auto auto;
         gap: 10px;
     }
-    &--grid-36{
+
+    &--grid-36 {
         margin-top: 40px;
         grid-template-columns: auto auto auto auto auto auto;
         gap: 5px;
@@ -97,16 +99,107 @@
     width: 200px;
     background-image: var(--surface-cover);
     @include mx.size-scaling(120px, 120px);
-    @include mx.flex-center();
-
+    //@include mx.flex-center();
+    &__inner{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 300ms ease-in-out;
+    }
+    &__face{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        backface-visibility: hidden;
+        &--back{
+            transform: rotateY(180deg);
+        }
+    }
+    &:hover {
+        animation: shake 0.2s linear infinite;
+    }
+    &.is-flipped .card__inner{
+        transform: rotateY(180deg);
+    }
 }
 
 
-.modal{
-    @include mx.flex-costom($fd: column, $jc:space-between, $ai:center, $gap: 0px);
+
+
+
+.modal {
+    @include mx.flex-costom($fd: column, $jc: space-between, $ai: center, $gap: 0px);
     @include mx.size-scaling(500px, 320px, 40px);
     @include mx.font-design(32px, 700);
     background-color: var(--surface-modal);
     color: var(--text-modal-primary);
     text-align: center;
+}
+
+
+.overlay {
+    @include mx.position-offset($po: absolute, $top: 0px, $lt: 100%);
+    @include mx.size-scaling(100%, 100vh);
+    @include mx.flex-center();
+    background-color: rgba(0, 0, 0, 0.0);
+    transform: translateX(0);
+    transition: transform 0.5s ease-out;
+}
+
+
+.fade-in {
+    transform: translateX(-100%);
+}
+
+// REIN Animation
+.is-open {
+    animation: slideIn 0.3s ease forwards;
+}
+
+// RAUS Animation
+.is-closing {
+    animation: slideOut 0.3s ease forwards;
+}
+
+
+// Keyframes global!
+@keyframes slideIn {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes shake {
+    0% {
+        transform: rotate(-2deg);
+    }
+
+    25% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
