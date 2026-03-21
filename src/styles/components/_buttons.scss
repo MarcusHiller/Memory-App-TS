@@ -19,7 +19,7 @@
     }
 
     &__text {
-        @include mx.font-design($fz: 40px, $fw: 700);
+        @include mx.font-design($fz: 40px, $fw: 700, $ffam:'Red Rose');
     }
 
     &__arrow {
@@ -61,7 +61,7 @@
     }
 
     &__text {
-        @include mx.font-design($fz: 20px, $fw: 700);
+        @include mx.font-design($fz: 20px, $fw: 700, $ffam:'Red Rose');
     }
 }
 
