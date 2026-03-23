@@ -28,36 +28,54 @@ function playGame() {
 document.addEventListener("click", (event) => {
     setPreference(event);
     aktivateButton();
+    updateFooter();
 })
 
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    console.log(event);
-    getFromLocalStorage();
-    updateSettings();
+document.addEventListener("DOMContentLoaded", () => {
+    let available = localStorage.getItem("memoryGame");
+    if (available) {
+        getFromLocalStorage();
+        updateSettings();
+        updateFooter();
+        startBtn();
+    }
 })
 
 
-
-
+function updateFooter() {
+    updateFotterTheme();
+    updateFotterPlayer();
+    updateFotterCards();
+}
 
 
 function updateSettings() {
-    let img = document.querySelector('.img-themse') as HTMLImageElement;
-    img.src = `assets/img/settings/themes_example_${memoryGame.theme}.svg`;
+    updateSettingImg();
     updateElementTheme();
     updateElementPlayer();
     updateElementCards();
 }
 
 
+function updateSettingImg() {
+    let img = document.querySelector('.img-themse') as HTMLImageElement;
+    if (memoryGame.theme == "") {
+        img.src = `assets/img/settings/themes_example_code.svg`;
+    } else {
+        img.src = `assets/img/settings/themes_example_${memoryGame.theme}.svg`;
+    }
+}
+
+
 function updateElementTheme() {
+    if (memoryGame.theme === "") return;
     let settingTheme = document.querySelector(`input[name=theme][value=${memoryGame.theme}]`);
     if (settingTheme) {
         let listElement = settingTheme.closest('.setting-element');
         let label = listElement?.querySelectorAll('.setting-element__input-field');
         showSelection(label);
-    } 
+    }
 }
 
 
@@ -81,7 +99,6 @@ function updateElementCards() {
 }
 
 
-
 function setPreference(event: any) {
     let target = event.target instanceof HTMLInputElement;
     if (target) {
@@ -91,7 +108,6 @@ function setPreference(event: any) {
         setSettingInDB(input);
         resetAllListElement(event);
         showSelection(singleLabel);
-        updateFooterInformation(input.name);
     }
 }
 
@@ -168,17 +184,36 @@ function resetAllListElement(event: any) {
 }
 
 
-function updateFooterInformation(input: string | undefined) {
-    if (input == "theme") {
-        let textTheme = document.getElementById('fTheme') as HTMLElement;
+function updateFotterTheme() {
+    let textTheme = document.getElementById('fTheme') as HTMLElement;
+    if (memoryGame.theme === "") {
+        textTheme.innerHTML = "";
+        textTheme.innerHTML = `Game Themes`;
+    } else {
         textTheme.innerHTML = "";
         textTheme.innerHTML = `Theme: ${memoryGame.theme}`;
-    } else if (input == "player") {
-        let textTheme = document.getElementById('fPlayer') as HTMLElement;
+    }
+}
+
+
+function updateFotterPlayer() { 
+    let textTheme = document.getElementById('fPlayer') as HTMLElement;
+    if (memoryGame.choosePlayer == "") {
+        textTheme.innerHTML = "";
+        textTheme.innerHTML = `Player`;
+    } else {
         textTheme.innerHTML = "";
         textTheme.innerHTML = `${memoryGame.choosePlayer}`;
-    } else if (input == "boardSize") {
+    }
+}
+
+
+function updateFotterCards() {
         let textTheme = document.getElementById('fSize') as HTMLElement;
+    if (memoryGame.memoryDeck == 0) {
+        textTheme.innerHTML = "";
+        textTheme.innerHTML = `Bord size`;
+    }else {
         textTheme.innerHTML = "";
         textTheme.innerHTML = `${memoryGame.memoryDeck} Cards`;
     }
@@ -186,14 +221,28 @@ function updateFooterInformation(input: string | undefined) {
 
 
 function aktivateButton() {
-    let isChecked = 0;
+    getBtn();
+    startBtn();
+}
+
+
+function getBtn() {
+    let count = 0;
     let flag = document.querySelectorAll('.setting-element__img-flag--aktiv');
     flag.forEach((element) => {
         if (element) {
-            isChecked++;
+            count++;
         }
     })
-    if (isChecked == memoryGame.allCecked) {
+    if (count == memoryGame.allCecked) {
+        memoryGame.isChecked = true;
+        saveLocalStorage();
+    }
+}
+
+
+function startBtn() {
+    if (memoryGame.isChecked) {
         document.getElementById('play-game')?.classList.remove('btn-start--disabled');
     }
 }

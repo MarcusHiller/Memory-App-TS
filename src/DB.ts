@@ -2,15 +2,16 @@ import { DB } from "./interface";
 
 export let memoryGame:DB = {
     cureentPlayer: '',
-    memoryDeck: undefined,
+    memoryDeck: 0,
     playedCards: [],
-    theme: "code",
-    choosePlayer: undefined,
+    theme: "",
+    choosePlayer: "",
     points: {
         blue: 0,
         orange: 0
     },
     allCecked: 3,
+    isChecked:false,
 }
 
 

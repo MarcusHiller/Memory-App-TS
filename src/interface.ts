@@ -17,4 +17,5 @@ export interface DB{
         orange: number
     },
     allCecked:number,
+    isChecked:boolean,
 }
