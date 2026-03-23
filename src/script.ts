@@ -1,17 +1,7 @@
 import { eventNames } from "node:cluster";
-import { ListInput, DB } from "./interface";
+import { ListInput} from "./interface";
+import { memoryGame } from "./DB";
 
-let memoryGame:DB = {
-    cureentPlayer: '',
-    memoryDeck: 16,
-    playedCards: [],
-    theme: "code",
-    choosePlayer: '',
-    points: {
-        blue: 0,
-        orange: 0
-    }
-}
 
 document.getElementById('play-btn')?.addEventListener("click", () => {
     goToNextpage();
@@ -30,9 +20,21 @@ function goToNextpage(): void {
 
 function playGame() {
     //window.location.href = 'game.html';
-    console.log('Hallo Welt');
     console.log(memoryGame);
+}
 
+
+document.addEventListener("click", (event) => {
+    setPreference(event);
+})
+
+
+function setPreference(event:any) {
+    let input = inputSingleListElement(event);
+    changePicture(input);
+    setSettingInDB(input);
+    resetAllListElement(event);
+    showSelection(event);
 }
 
 
@@ -45,17 +47,6 @@ function changePicture(input: any) {
         img.src = `assets/img/settings/themes_example_${input.value}.svg`;
     }
 }
-
-
-document.addEventListener("click", (event) => {
-
-    let input = inputSingleListElement(event);
-    changePicture(input);
-    setSettingInDB(input);
-    resetAllListElement(event);
-    showSelection(event);
-
-})
 
 
 function inputSingleListElement(event: any) {
