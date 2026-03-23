@@ -15,5 +15,6 @@ export interface DB{
     points: {
         blue: number,
         orange: number
-    }
+    },
+    allCecked:number,
 }
