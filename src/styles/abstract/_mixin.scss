@@ -60,7 +60,7 @@ $breakpoints: (
 
 
 // font design template
-@mixin font-design($fz:16px, $fw:300, $ffam:null) {
+@mixin font-design($fz:16px, $fw:300, $ffam:inherit) {
     font-size: $fz;
     font-weight: $fw;
     font-family: $ffam;

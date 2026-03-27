@@ -29,6 +29,7 @@
         --text-content: 'No, back game';
         --text-modal-btn-back: #FFFFFF;
         --surface-modal-btn-back: #ED1B76;
+        --border-color-btn-back: #E71C4F;
         --border-btn-back: 1px;
         --border-radius-back: 10px;
         --font-weight-btn-back: 700;
@@ -38,32 +39,32 @@
 
 
         // hover
-        --border-btn-back-hov: 2px;
+        --border-btn-back-hov: 1px;
         --border-color-btn-back-hov: #ED1B76;
         --surface-modal-btn-back-hov: #F2C7DA;
         --text-modal-btn-back-hov: #ED1B76;
-        --border-btn-shadow-back-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+        --border-btn-shadow-back-hov: 0px 0px 0px 1px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
 
 
         // modal btn quit
         //normal
         --text-content: 'No, back game';
-        --text-modal-btn-qiut: #FFFFFF;
-        --surface-modal-btn-quit: #ED1B76;
-        --border-btn-quit: 0px;
+        --text-modal-btn-quit: #ED1B76;
+        --surface-modal-btn-quit: #FFFFFF;
+        --border-btn-quit: 1px;
         --border-color-quit: #ED1B76;
         --border-radius-quit: 10px;
         --font-weight-btn-quit: 700;
-        --font-size-btn-quit: 24px;
-        --padding-btn-quit: 16px 24px;
+        --font-size-btn-quit: 16px;
+        --padding-btn-quit: 12px 20px;
         --shadow-btn-quit: none;
 
         // hover
-        --border-btn-quit-hov: 2px;
+        --border-btn-quit-hov: 1px;
         --border-color-btn-quit-hov: #ED1B76;
         --surface-modal-btn-quit-hov: #F2C7DA;
         --text-modal-btn-quit-hov: #ED1B76;
-        --border-btn-shadow-qiut-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+        --border-btn-shadow-qiut-hov: 0px 0px 0px 1px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
 
 
         // header
@@ -78,7 +79,7 @@
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
         --padding-status-player: 16px;
-        --border-game-ingo: 0px;
+        --border-game-info: 0px;
         --border-radius-game-info: 10px;
 
 
