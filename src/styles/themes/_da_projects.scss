@@ -21,6 +21,7 @@
         --text-modal-primary: #294F60;
         --border-modal: 20px;
         --modal-font-size: 28px;
+        --modal-font-weight: 700;
 
 
         // modal btn back
@@ -28,7 +29,6 @@
         --text-content: 'Back to game';
         --text-modal-btn-back: #1E7594;
         --surface-modal-btn-back: #BFE5F2;
-
         --border-btn-back: 0px;
         --border-radius-back: 10px;
         --font-weight-btn-back: 700;
@@ -45,13 +45,13 @@
         --border-btn-shadow-back-hov: none;
 
 
-
         // modal btn quit
         //normal
         --text-content: 'Exit game';
         --text-modal-btn-qiut: #FFFFFF;
         --surface-modal-btn-quit: #FD8A81;
         --border-btn-quit: 0px;
+        --border-color-quit: none;
         --border-radius-quit: 10px;
         --font-weight-btn-quit: 700;
         --font-site-btn-quit: 16px;
@@ -69,6 +69,8 @@
         // header
         --surface-header: #F0F3F4;
         --pading-header: 24px;
+        --border-radius-header: 10px;
+        --alignment-current-player: center;
 
 
         // Game information display field / status-plyer
@@ -76,13 +78,9 @@
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
         --padding-status-player: 30px;
-        --border-game-ingo: 0px; //namen korrigieren
+        --border-game-info: 0px; 
         --border-radius-game-info: 10px;
 
-
-        // Current player display field
-
-        --alignment-current-player: center; // mit zu header
 
         // btn exit
         // normal
@@ -102,6 +100,5 @@
         --surface-modal-btn-exit-hov: #1E7594;
         --text-btn-exit-hov: #FFFFFF;
         --border-btn-shadow-exit-hov: 3px 3px 5px 0px #2F2E2E33;
-
     }
 }

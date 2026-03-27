@@ -1,9 +1,7 @@
 .theme {
 
-
     &__food {
         font-family: 'Klee One';
-
         background-color: #FFFFFF; // background
         color: #A45212;
 
@@ -31,7 +29,6 @@
         --text-content: 'Back to game';
         --text-modal-btn-back: #FFFFFF;
         --surface-modal-btn-back: #FFAB3E;
-
         --border-btn-back: 3px;
         --border-radius-back: 10px;
         --font-weight-btn-back: 700;
@@ -46,8 +43,6 @@
         --surface-modal-btn-back-hov: #F3832D;
         --text-modal-btn-back-hov: #FFFFFF;
         --border-btn-shadow-back-hov: 3px 3px 5px 0px #00000033;
-
-
 
 
         // modal btn quit
@@ -83,9 +78,8 @@
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
         --padding-status-player: 16px;
-        --border-game-ingo: 0px; //namen korrigieren
+        --border-game-info: 0px; 
         --border-radius-game-info: 10px;
-
 
 
         // btn exit
