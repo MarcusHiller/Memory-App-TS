@@ -103,7 +103,7 @@
     }
 
     &__text {
-        @include mx.font-design(var(--font-site-btn-exit), var(--font-weight-btn-exit))
+        @include mx.font-design(var(--font-size-btn-exit), var(--font-weight-btn-exit))
     }
 
     &:hover {
@@ -117,27 +117,28 @@
     background-color: var(--surface-modal-btn-back);
     color: var(--text-modal-btn-back);
     @include mx.size-scaling($pd: var(--padding-btn-exit));
-    @include mx.font-design(20px, 700);
-    border: var(--border-btn-exit);
+    @include mx.font-design($fz:var(--font-size-btn-back),$fw:var(--font-weight-btn-back));
+    border: var(--border-btn-back);
     border-radius: var(--border-radius-btn-exit);
     &:hover{
         color: var(--text-modal-btn-back-hov);
+        box-shadow: var(--border-btn-shadow-back-hov);
         background-color: var(--surface-modal-btn-back-hov);
-        border: var(--border-btn-back-hov);
     }
 }
 
 
 .btn-modal-exit {
-    @include mx.size-scaling($pd: var(--padding-btn-exit));
+    @include mx.size-scaling($pd: var(--padding-btn-quit));
     gap: 10px;
-    background-color: var(--surface-btn-exit);
+    background-color: var(--surface-modal-btn-quit);
     color: var(--text-modal-btn-quit);
     border: var(--border-btn-quit);
-    border-radius: var(--border-radius-btn-quit);
-
-    @include mx.font-design(var(--font-site-btn-exit), var(--font-weight-btn-exit));
+    border-radius: var(--border-radius-quit);
+    @include mx.font-design(var(--font-size-btn-quit), var(--font-weight-btn-quit));
     &:hover {
-        box-shadow: var(--border-btn-exit-hov);
+        color: var(--text-modal-btn-back-hov);
+        box-shadow: var(--border-btn-shadow-qiut-hov);
+        background-color: var(--surface-modal-btn-quit-hov);
     }
 }
