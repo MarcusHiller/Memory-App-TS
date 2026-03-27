@@ -1,0 +1,103 @@
+.theme {
+
+    &__game {
+        font-family: 'Orbitron';
+        background-color: #294F60; // background
+        color: #FFFFFF;
+
+        // card design
+        --surface-cover: linear-gradient(147.13deg, #ED1B76 1.28%, #0A2835 142.53%); // card cover
+        --surface-front: #F6F1F3;
+        --surface-match: #F6F1F3;
+        --border-match: 3px solid #ED1B76;
+        --border-radius-card: 12px;
+        --card-shadow: 5px 5px 8px 0px #ED1B764D;
+        --card-width: 105px;
+        --card-height: 120px;
+        --card-deck: none;
+
+        // modal
+        --surface-modal: #F0F6F9;
+        --text-modal-primary: #294F60;
+        --border-modal: 20px;
+        --modal-font-size: 28px;
+
+
+        // modal btn back
+        //normal
+        --text-content: 'No, back game';
+        --text-modal-btn-back: #FFFFFF;
+        --surface-modal-btn-back: #ED1B76;
+        --border-btn-back: 1px;
+        --border-radius-back: 10px;
+        --font-weight-btn-back: 700;
+        --font-site-btn-back: 16px;
+        --padding-btn-back: 12px 20px;
+
+        // hover
+        --border-btn-back-hov: 2px;
+        --border-color-btn-back-hov: #ED1B76;
+        --surface-modal-btn-back-hov: #F2C7DA;
+        --text-modal-btn-back-hov: #ED1B76;
+        --border-btn-shadow-back-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+
+
+
+        // modal btn quit
+        //normal
+        --text-content: 'No, back game';
+        --text-modal-btn-qiut: #FFFFFF;
+        --surface-modal-btn-quit: #ED1B76;
+        --border-btn-quit: 0px;
+        --border-radius-quit: 10px;
+        --font-weight-btn-quit: 700;
+        --font-site-btn-quit: 24px;
+        --padding-btn-quit: 16px 24px;
+
+        // hover
+        --border-btn-quit-hov: 2px;
+        --border-color-btn-quit-hov: #ED1B76;
+        --surface-modal-btn-quit-hov: #F2C7DA;
+        --text-modal-btn-quit-hov: #ED1B76;
+        --border-btn-shadow-qiut-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+
+
+        // header
+        --surface-header: #FD96C933;
+        --pading-header: 24px;
+
+
+        // Game information display field / status-plyer
+        --surface-game-info: #FFFFFF;
+        --text-player-bl: #2BB1FF;
+        --text-player-or: #F58E39;
+        --padding-status-player: 16px;
+        --border-game-ingo: 0px;
+        --border-radius-game-info: 10px;
+
+
+        // Current player display field
+
+        --alignment-current-player: center;
+
+        // btn exit
+        // normal
+        --text-btn-exit: #FFFFFF;
+        --surface-btn-exit: transparent;
+        --border-btn-exit: 2px solid #E71C4F;
+        --border-radius-btn-exit: 10px;
+        --font-site-btn-exit: 20px;
+        --font-weight-btn-exit: 700;
+        --padding-btn-exit: 12px 20px;
+        --size-width-btn-exit: 30px;
+        --size-height-btn-exit: 30px;
+
+        // hover
+        --border-btn-exit-hov: 2px;
+        --border-color-btn-exit-hov: #E71C4F;
+        --surface-modal-btn-exit-hov: #ED1B7614;
+        --text-btn-exit-hov: #FFFFFF;
+        --border-btn-shadow-exit-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+
+    }
+}
