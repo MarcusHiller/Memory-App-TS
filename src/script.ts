@@ -21,7 +21,6 @@ function goToNextpage(): void {
 
 function playGame() {
     window.location.href = 'game.html';
-    //console.log(memoryGame);
 }
 
 
