@@ -20,6 +20,7 @@
     @include mx.size-scaling($ht: var(--header_heigth), $pd:var(--pading-header));
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-radius: var(--border-radius-header);
 }
 
@@ -96,7 +97,7 @@
 
 
 .card {
-    background-image: var(--surface-cover);
+    background: var(--surface-cover);
     @include mx.size-scaling(var(--card-width), var(--card-height));
     border-radius: var(--border-radius-card);
     &__inner{

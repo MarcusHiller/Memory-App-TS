@@ -17,8 +17,6 @@ export let memoryGame:DB = {
 
 export function getFromLocalStorage() {
     let dataStorage = localStorage.getItem("memoryGame");
-
-    
     if (dataStorage !== null){
         let dataParse = JSON.parse(dataStorage) as DB;
         memoryGame = dataParse;
