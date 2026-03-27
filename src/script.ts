@@ -243,7 +243,9 @@ function getBtn() {
 
 function startBtn() {
     if (memoryGame.isChecked) {
-        document.getElementById('play-game')?.classList.remove('btn-start--disabled');
+        let startBtn = document.getElementById('play-game');
+        startBtn?.classList.remove('btn-start--disabled');
+        startBtn?.removeAttribute('disabled');
     }
 }
 
