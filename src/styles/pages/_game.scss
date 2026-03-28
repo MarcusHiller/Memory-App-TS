@@ -128,13 +128,18 @@
 
 
 .modal {
-    @include mx.flex-costom($fd: column, $jc: space-between, $ai: center, $gap: 0px);
-    @include mx.size-scaling(500px, 320px, 40px);
+    @include mx.flex-center($gap: 54px);
+    @include mx.size-scaling(500px, 253px, 40px);
     @include mx.font-design($fz:var(--modal-font-size), $fw:var(--modal-font-weight));
     background-color: var(--surface-modal);
     color: var(--text-modal-primary);
     text-align: center;
     border-radius: var(--border-modal);
+}
+
+
+.modal-btn-field {
+    @include mx.flex-center($fd:row, $gap: 24px);
 }
 
 
