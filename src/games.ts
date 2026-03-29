@@ -65,7 +65,7 @@ function gameField() {
             </section>
             <div class="display-player">
                 <p class="display-player__text">Current Player:</p>
-                <img class="display-player__img" src="assets/img/game/label_blue.svg" alt="">
+                <img class="display-player__img" src="assets/img/game/label_${memoryGame.cureentPlayer}.svg" alt="">
             </div>
         </div>
         <div>
