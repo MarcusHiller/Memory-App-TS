@@ -27,7 +27,7 @@
 
 .status-player {
     @include mx.flex-costom($fd: row, $ai: center, $gap: 20px);
-    @include mx.size-scaling($pd: var(--padding-status-player));
+    @include mx.size-scaling($ht: var(--height-status-player), $pd: var(--padding-status-player));
     background-color: var(--surface-game-info);
     border-radius: var(--border-radius-game-info);
 }

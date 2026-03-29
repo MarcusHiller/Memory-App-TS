@@ -29,6 +29,7 @@
         --text-content: 'Back to game';
         --text-modal-btn-back: #1E7594;
         --surface-modal-btn-back: #BFE5F2;
+        --border-color-btn-back: #66CFBC;
         --border-btn-back: 0px;
         --border-radius-back: 10px;
         --font-weight-btn-back: 700;
@@ -69,6 +70,7 @@
         // header
         --surface-header: #F0F3F4;
         --pading-header: 24px;
+        --header_heigth: auto;
         --border-radius-header: 10px;
         --alignment-current-player: center;
 
@@ -77,7 +79,8 @@
         --surface-game-info: #FFFFFF;
         --text-player-bl: #2BB1FF;
         --text-player-or: #F58E39;
-        --padding-status-player: 30px;
+        --height-status-player: 54px;
+        --padding-status-player: 16px;
         --border-game-info: 0px; 
         --border-radius-game-info: 10px;
 
