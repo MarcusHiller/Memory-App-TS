@@ -61,12 +61,18 @@ function renderCards() {
 
 function insertPictureHeader() {
     let centerPathSuffix:string;
+    let playerDisplayPath:string;
+    let centerBackground:string;
     if (memoryGame.theme == "code") {
         centerPathSuffix = "label_" + memoryGame.cureentPlayer;
+        playerDisplayPath = "label_";
+        centerBackground = "transparent";
     } else {
         centerPathSuffix = "chess_pawn_white";
+        playerDisplayPath = "chess_pawn_";
+        centerBackground = memoryGame.cureentPlayer!;
     }
-    return centerPathSuffix;
+    return {center:centerPathSuffix, player:playerDisplayPath, backgr:centerBackground};
 }
 
 
@@ -77,20 +83,20 @@ function gameField() {
         <div class="game-info">
             <section class="status-player">
                 <div class="player">
-                    <img class="player__img" src="assets/img/game/label_blue.svg" alt="">
+                    <img class="player__img" src="assets/img/game/${headImg.player}blue.svg" alt="">
                     <p class="player__one">Blue</p>
                     <span class="player__one">0</span>
                 </div>
                 <div class="player">
-                    <img class="player__img" src="assets/img/game/label_orange.svg" alt="">
+                    <img class="player__img" src="assets/img/game/${headImg.player}orange.svg" alt="">
                     <p class="player__two">Orange</p>
                     <span class="player__two">0</span>
                 </div>
             </section>
             <div class="display-player">
                 <p class="display-player__text">Current Player:</p>
-                <div class="display-player__img-background display-player__img-background--blue">
-                    <img class="display-player__img" src="assets/img/game/${headImg}.svg" alt="">
+                <div class="display-player__img-background display-player__img-background--${headImg.backgr}">
+                    <img class="display-player__img" src="assets/img/game/${headImg.center}.svg" alt="">
                 </div>
             </div>
         </div>
