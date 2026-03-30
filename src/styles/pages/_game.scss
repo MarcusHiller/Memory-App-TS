@@ -44,6 +44,23 @@
     &__img {
         @include mx.size-scaling(29px, 24px);
     }
+
+    &__img-background{
+        @include mx.flex-center();
+        @include mx.size-scaling(var(--img-div-width), var(--img-div-height), var(--img-div-padding));
+        border-radius: var(--img-div-border-radius);
+        
+        &--blue{
+            background-color: #097FC5;
+        }
+        
+        &--orange{
+            background-color: #EA6900;
+        }
+        &--transparent{
+            background-color: transparent;
+        } 
+    }
 }
 
 

@@ -47,25 +47,39 @@ function renderCards() {
 }
 
 
+function insertPictureHeader() {
+    if (memoryGame.theme == "code") {
+        let pathSuffix = "label_" + memoryGame.choosePlayer;
+        return pathSuffix;
+    } else {
+        let pathSuffix = "chess_pawn_white";
+        return pathSuffix;
+    }
+}
+
+
 function gameField() {
+    let headImg = insertPictureHeader();
     return `
     <header class="display-field">
         <div class="game-info">
             <section class="status-player">
                 <div class="player">
                     <img class="player__img" src="assets/img/game/label_blue.svg" alt="">
-                    <p class="player__one">player one</p>
+                    <p class="player__one">Blue</p>
                     <span class="player__one">0</span>
                 </div>
                 <div class="player">
                     <img class="player__img" src="assets/img/game/label_orange.svg" alt="">
-                    <p class="player__two">player two</p>
+                    <p class="player__two">Orange</p>
                     <span class="player__two">0</span>
                 </div>
             </section>
             <div class="display-player">
                 <p class="display-player__text">Current Player:</p>
-                <img class="display-player__img" src="assets/img/game/label_${memoryGame.cureentPlayer}.svg" alt="">
+                <div class="display-player__img-background display-player__img-background--blue">
+                    <img class="display-player__img" src="assets/img/game/${headImg}.svg" alt="">
+                </div>
             </div>
         </div>
         <div>
