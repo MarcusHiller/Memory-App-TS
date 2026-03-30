@@ -20,6 +20,22 @@ $breakpoints: (
 }
 
 
+// boundary points
+$breakpoints: (
+    md:700px,
+    lg:840px,
+    xl:920px,
+);
+
+
+// responsiv for media querry
+@mixin screenHeight($size){ 
+    @media screen and (max-height: map.get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+
 // Standard flex box for individual alignment
 @mixin flex-center($fd: column, $gap: 0px) {
     display: flex;
