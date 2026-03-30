@@ -12,6 +12,9 @@
 .game-board {
     margin-top: 41px;
     @include mx.size-scaling(1217px);
+    @include mx.screenHeight(xxl) {
+        margin-top: 20px;
+    }
 }
 
 
@@ -107,6 +110,7 @@
     }
 
     &--grid-36 {
+        margin-top: 40px;
         grid-template-columns: auto auto auto auto auto auto;
         gap: 8px;
         @include mx.screenHeight(xl) {
