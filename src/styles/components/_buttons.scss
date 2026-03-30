@@ -91,7 +91,7 @@
 
 // Game page
 .btn-exit {
-    @include mx.size-scaling($pd: var(--padding-btn-exit));
+    @include mx.size-scaling($ht:var(--height-btn-exit), $pd: var(--padding-btn-exit));
     gap: 10px;
     background-color: var(--surface-btn-exit);
     color: var(--text-btn-exit);
@@ -116,7 +116,7 @@
 .btn-back {
     background-color: var(--surface-modal-btn-back);
     color: var(--text-modal-btn-back);
-    @include mx.size-scaling($pd: var(--padding-btn-exit));
+    @include mx.size-scaling($pd: var(--padding-btn-back));
     @include mx.font-design($fz:var(--font-size-btn-back),$fw:var(--font-weight-btn-back));
     border: var(--border-btn-back) solid var(--border-color-btn-back);
     border-radius: var(--border-radius-btn-exit);
