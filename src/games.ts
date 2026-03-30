@@ -21,9 +21,23 @@ document.addEventListener('click', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     getFromLocalStorage();
+    setTheme();
+    setAktivPlayer();
     rederGameApp();
     renderCards();
 } )
+
+
+function setTheme() {
+    let body = document.querySelector('body');
+    body?.classList.add(`theme__${memoryGame.theme}`);
+}
+
+
+function setAktivPlayer() {
+    memoryGame.cureentPlayer = memoryGame.choosePlayer;
+}
+
 
 
 function rederGameApp() {
@@ -35,12 +49,10 @@ function rederGameApp() {
 
 function renderCards() {
     let howMuchCards = memoryGame.memoryDeck;
-    
     if (howMuchCards) {
         let playingField = document.querySelector('.playing-field') as HTMLElement;
             playingField.innerHTML = "";
         for (let i = 0; i < howMuchCards; i++) {
-            
             playingField.innerHTML += singleDeck();
         }
     }
@@ -48,13 +60,13 @@ function renderCards() {
 
 
 function insertPictureHeader() {
+    let centerPathSuffix:string;
     if (memoryGame.theme == "code") {
-        let pathSuffix = "label_" + memoryGame.choosePlayer;
-        return pathSuffix;
+        centerPathSuffix = "label_" + memoryGame.cureentPlayer;
     } else {
-        let pathSuffix = "chess_pawn_white";
-        return pathSuffix;
+        centerPathSuffix = "chess_pawn_white";
     }
+    return centerPathSuffix;
 }
 
 
