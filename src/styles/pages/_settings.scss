@@ -32,16 +32,28 @@
         width: 100%;
         @include mx.flex-costom($fd: column, $ai: center, $gap: 90px);
     }
+    @include mx.screenHeight(lg) {
+        margin-top: 90px;
+    }
 }
 
 
 .headline {
     @include mx.position-offset($top: -129px, $lt: 3px);
     @include mx.size-scaling($wh: 251px, $ht: 67px);
+
+    @include mx.screenHeight(lg) {
+        top: -110px;
+    }
+
     text-align: center;
 
     &__title {
         @include mx.font-design($fz: 54px, $fw: 700, $ffam: 'Red Rose');
+
+        @include mx.screenHeight(lg) {
+            font-size: 46px;
+        }
     }
 
     @include mx.respond(md) {
@@ -56,7 +68,7 @@
     width: 100%;
 
     @include mx.respond(md) {
-        @include mx.flex-center($fd: column, $gap:60px);
+        @include mx.flex-center($fd: column, $gap: 60px);
         position: unset;
     }
 }
@@ -76,6 +88,7 @@
 .player-settings {
     @include mx.position-offset($bo: 0px, $lt: 0px);
     @include mx.flex-costom($gap: 54px);
+
     @include mx.respond(md) {
         position: unset;
     }
@@ -108,18 +121,20 @@
         }
     }
 
-    &__circle-emp{
+    &__circle-emp {
         @include mx.size-scaling($wh: 20px, $ht: 20px);
         display: block;
+
         &--aktiv {
             display: none;
         }
     }
-        
+
     &__circle-full {
         @include mx.size-scaling($wh: 24px, $ht: 24px);
         margin-left: -2px;
         display: none;
+
         &--aktiv {
             display: block;
         }
