@@ -78,12 +78,19 @@
     &__one {
         @include mx.font-design(24px, 700);
         color: var(--text-player-bl);
+        display: none;
     }
 
     &__two {
         @include mx.font-design(24px, 700);
         color: var(--text-player-or);
+        display: none;
     }
+}
+
+
+.font-aktiv{
+    display: block;
 }
 
 

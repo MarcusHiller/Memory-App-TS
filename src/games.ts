@@ -63,16 +63,19 @@ function insertPictureHeader() {
     let centerPathSuffix:string;
     let playerDisplayPath:string;
     let centerBackground:string;
+    let font:string | null;
     if (memoryGame.theme == "code") {
         centerPathSuffix = "label_" + memoryGame.cureentPlayer;
         playerDisplayPath = "label_";
         centerBackground = "transparent";
+        font = "font-aktiv";
     } else {
         centerPathSuffix = "chess_pawn_white";
         playerDisplayPath = "chess_pawn_";
         centerBackground = memoryGame.cureentPlayer!;
+        font= null;
     }
-    return {center:centerPathSuffix, player:playerDisplayPath, backgr:centerBackground};
+    return {center:centerPathSuffix, player:playerDisplayPath, backgr:centerBackground, font:font};
 }
 
 
@@ -84,13 +87,13 @@ function gameField() {
             <section class="status-player">
                 <div class="player">
                     <img class="player__img" src="assets/img/game/${headImg.player}blue.svg" alt="">
-                    <p class="player__one">Blue</p>
-                    <span class="player__one">0</span>
+                    <p class="player__one ${headImg.font}">Blue</p>
+                    <span class="player__one font-aktiv">0</span>
                 </div>
                 <div class="player">
                     <img class="player__img" src="assets/img/game/${headImg.player}orange.svg" alt="">
-                    <p class="player__two">Orange</p>
-                    <span class="player__two">0</span>
+                    <p class="player__two ${headImg.font}">Orange</p>
+                    <span class="player__two font-aktiv">0</span>
                 </div>
             </section>
             <div class="display-player">
