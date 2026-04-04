@@ -1,6 +1,6 @@
 import { eventNames } from "node:cluster";
 import { ListInput } from "./interface";
-import { memoryGame, getFromLocalStorage } from "./DB";
+import { memoryGame, getFromLocalStorage, saveLocalStorage } from "./DB";
 import { DB } from "./interface";
 
 
@@ -249,6 +249,3 @@ function startBtn() {
 }
 
 
-function saveLocalStorage() {
-    localStorage.setItem("memoryGame", JSON.stringify(memoryGame));
-}

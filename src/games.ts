@@ -1,22 +1,4 @@
-import { memoryGame, getFromLocalStorage } from "./DB";
-
-function openModal(event: any) {
-    let getButton = event.target as HTMLElement;
-    let overlay = getButton.closest('.overlay');
-    let btn = getButton.closest('.btn-exit');
-    if (btn) {
-        let open = document.querySelector('.overlay') as HTMLElement;
-        open.classList.add('fade-in');
-    } else if (overlay) {
-        let open = document.querySelector('.overlay') as HTMLElement;
-        open.classList.remove('fade-in');
-    }
-}
-
-
-document.addEventListener('click', (event) => {
-    openModal(event);
-})
+import { memoryGame, getFromLocalStorage, saveLocalStorage, resetMemoryGame } from "./DB";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +7,45 @@ document.addEventListener('DOMContentLoaded', () => {
     setAktivPlayer();
     rederGameApp();
     renderCards();
-} )
+})
+
+
+document.addEventListener('click', (event) => {
+    overlaAktion(event);
+})
+
+
+function openModal() {
+    let open = document.querySelector('.overlay') as HTMLElement;
+    open.classList.add('fade-in');
+}
+
+
+function closeModal() {
+    let open = document.querySelector('.overlay') as HTMLElement;
+    open.classList.remove('fade-in');
+}
+
+
+function quitGame() {
+    resetMemoryGame();
+    saveLocalStorage();
+    window.location.href = 'setting.html';
+}
+
+
+function overlaAktion(event: any) {
+    let action = (event.target as HTMLElement).closest('[data-action]')?.getAttribute('data-action');
+    if (action === 'open') return openModal();
+    if (action === 'modal') return event.stopPropagation();
+    if (action === 'close') return closeModal();
+    if (action === 'exit') {
+        quitGame();
+        console.log('quit');
+        
+    }
+}
+
 
 
 function setTheme() {
@@ -35,7 +55,7 @@ function setTheme() {
 
 
 function setAktivPlayer() {
-    memoryGame.cureentPlayer = memoryGame.choosePlayer;
+    memoryGame.currentPlayer = memoryGame.choosePlayer;
 }
 
 
@@ -51,7 +71,7 @@ function renderCards() {
     let howMuchCards = memoryGame.memoryDeck;
     if (howMuchCards) {
         let playingField = document.querySelector('.playing-field') as HTMLElement;
-            playingField.innerHTML = "";
+        playingField.innerHTML = "";
         for (let i = 0; i < howMuchCards; i++) {
             playingField.innerHTML += singleDeck();
         }
@@ -60,22 +80,22 @@ function renderCards() {
 
 
 function insertPictureHeader() {
-    let centerPathSuffix:string;
-    let playerDisplayPath:string;
-    let centerBackground:string;
-    let font:string | null;
+    let centerPathSuffix: string;
+    let playerDisplayPath: string;
+    let centerBackground: string;
+    let font: string | null;
     if (memoryGame.theme == "code") {
-        centerPathSuffix = "label_" + memoryGame.cureentPlayer;
+        centerPathSuffix = "label_" + memoryGame.currentPlayer;
         playerDisplayPath = "label_";
         centerBackground = "transparent";
         font = "font-aktiv";
     } else {
         centerPathSuffix = "chess_pawn_white";
         playerDisplayPath = "chess_pawn_";
-        centerBackground = memoryGame.cureentPlayer!;
-        font= null;
+        centerBackground = memoryGame.currentPlayer!;
+        font = null;
     }
-    return {center:centerPathSuffix, player:playerDisplayPath, backgr:centerBackground, font:font};
+    return { center: centerPathSuffix, player: playerDisplayPath, backgr: centerBackground, font: font };
 }
 
 
@@ -104,7 +124,7 @@ function gameField() {
             </div>
         </div>
         <div>
-            <button id="openModal" class="btn btn-exit">
+            <button data-action="open" class="btn btn-exit">
                 <img class="btn-exit__img" src="assets/img/game/exit_item.svg" alt="">
                 <p class="btn-exit__text">Exit game</p>
             </button>
