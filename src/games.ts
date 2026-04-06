@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getFromLocalStorage();
     setTheme();
     setAktivPlayer();
-    rederGameApp();
+    renderGameApp();
+    addCardToDeck();
     renderCards();
 })
 
@@ -40,11 +41,7 @@ function overlaAktion(event: any) {
     if (action === 'open') return openModal();
     if (action === 'modal') return event.stopPropagation();
     if (action === 'close') return closeModal();
-    if (action === 'exit') {
-        quitGame();
-        console.log('quit');
-        
-    }
+    if (action === 'exit') return quitGame();
 }
 
 
@@ -60,11 +57,33 @@ function setAktivPlayer() {
 }
 
 
-
-function rederGameApp() {
+function renderGameApp() {
     let playingField = document.querySelector('.game-board') as HTMLElement;
     playingField.innerHTML = "";
     playingField.innerHTML = gameField();
+}
+
+
+function addCardToDeck() {
+    let amountDeck = memoryGame.memoryDeck;
+    if (amountDeck) {
+        let half = amountDeck / 2;
+        let theme = memoryGame.theme;
+        for (let index = 0; index < half; index++) {
+            if (index <= 9) {
+                let string = `00${index + 1}`;
+                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
+                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
+            } else {
+                let string = `0${index + 1}`;
+                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
+                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
+            }
+        }
+    }
+
+    saveLocalStorage();
+
 }
 
 
@@ -100,20 +119,15 @@ function insertPictureHeader() {
 }
 
 
-function flipCard(event:any) {
+function flipCard(event: any) {
     let btn = event.target.closest('button');
     if (btn) {
-       let cardInner = btn.querySelector('.card__inner');
-       let img = btn.querySelector('.card__face--front');
-       console.log(cardInner);
-       if (cardInner && img) {
+        let cardInner = btn.querySelector('.card__inner');
+        if (cardInner) {
             cardInner.classList.toggle('is-flipped');
-            //img.classList.toggle('is-flipped');
-       }
-       
+        }
     }
 }
-
 
 
 function gameField() {
@@ -153,7 +167,7 @@ function gameField() {
 }
 
 
-function singleDeck(i:number) {
+function singleDeck(i: number) {
     return `
         <button id="card${i}" class="card card--hover">
             <div class="card__inner">
@@ -161,7 +175,7 @@ function singleDeck(i:number) {
                     <img class="card__img" src="assets/img/game/da_logo.svg" alt="">
                 </div>
                 <div class="card__face card__face--back">
-                    <img class="card__img" src="assets/img/startscreen/stadia_controller.svg" alt="">
+                    <img class="card__img" src="${memoryGame.cards[i]}" alt="">
                 </div>
             </div>
         </button>

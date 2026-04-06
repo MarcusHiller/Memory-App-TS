@@ -4,6 +4,7 @@ export let memoryGame:DB = {
     currentPlayer: '',
     memoryDeck: 0,
     playedCards: [],
+    cards: [],
     theme: "",
     choosePlayer: "",
     points: {
@@ -33,6 +34,7 @@ export function resetMemoryGame() {
     memoryGame.currentPlayer = '';
     memoryGame.memoryDeck = 0;
     memoryGame.playedCards = [];
+    memoryGame.cards = [];
     memoryGame.theme = "";
     memoryGame.choosePlayer = "";
     memoryGame.points.blue = 0;

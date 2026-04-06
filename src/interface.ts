@@ -9,7 +9,8 @@ export interface ListInput{
 export interface DB{
     currentPlayer: string | undefined,
     memoryDeck: number | undefined,
-    playedCards: any,
+    playedCards: [],
+    cards:string [],
     theme: string | undefined,
     choosePlayer: string | undefined,
     points: {

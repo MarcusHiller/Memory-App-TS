@@ -79,6 +79,7 @@ function updateElementTheme() {
 
 
 function updateElementPlayer() {
+    if (memoryGame.choosePlayer === "") return;
     let settingPlayer = document.querySelector(`input[name=player][value=${memoryGame.choosePlayer}]`);
     if (settingPlayer) {
         let listElement = settingPlayer.closest('.setting-element');
