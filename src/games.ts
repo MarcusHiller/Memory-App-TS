@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('click', (event) => {
     overlaAktion(event);
+    flipCard(event);
 })
 
 
@@ -73,7 +74,7 @@ function renderCards() {
         let playingField = document.querySelector('.playing-field') as HTMLElement;
         playingField.innerHTML = "";
         for (let i = 0; i < howMuchCards; i++) {
-            playingField.innerHTML += singleDeck();
+            playingField.innerHTML += singleDeck(i);
         }
     }
 }
@@ -97,6 +98,22 @@ function insertPictureHeader() {
     }
     return { center: centerPathSuffix, player: playerDisplayPath, backgr: centerBackground, font: font };
 }
+
+
+function flipCard(event:any) {
+    let btn = event.target.closest('button');
+    if (btn) {
+       let cardInner = btn.querySelector('.card__inner');
+       let img = btn.querySelector('.card__face--front');
+       console.log(cardInner);
+       if (cardInner && img) {
+            cardInner.classList.toggle('is-flipped');
+            //img.classList.toggle('is-flipped');
+       }
+       
+    }
+}
+
 
 
 function gameField() {
@@ -136,12 +153,16 @@ function gameField() {
 }
 
 
-function singleDeck() {
+function singleDeck(i:number) {
     return `
-        <button class="card card--hover">
+        <button id="card${i}" class="card card--hover">
             <div class="card__inner">
-                <img class="card__face" src="assets/img/game/da_logo.svg" alt="">
-                <img class="card__face card__face--back" src="assets/img/startscreen/stadia_controller.svg" alt="">
+                <div class="card__face card__face--front">
+                    <img class="card__img" src="assets/img/game/da_logo.svg" alt="">
+                </div>
+                <div class="card__face card__face--back">
+                    <img class="card__img" src="assets/img/startscreen/stadia_controller.svg" alt="">
+                </div>
             </div>
         </button>
     `;
