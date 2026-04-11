@@ -90,25 +90,25 @@ function renderGameApp() {
 function addCardToDeck() {
     // 1. Vite scannt den Ordner (wildcard *)
     // 'eager: true' sorgt dafür, dass die Daten sofort verfügbar sind
-    const modules = import.meta.glob('/public/assets/img/cards/*.svg', {
+    const modules = import.meta.glob(`./../public/assets/img/cards/**/*.svg`, {
         eager: true,
         import: 'default'
     });
 
     // 2. Wir extrahieren die Pfade aus dem Objekt in ein Array
     const allCardPaths = Object.keys(modules).map(path => {
-        return path.replace('/public', '')
+        return path.replace(/.*\/public/, '')
     });
-
-    console.log(allCardPaths[0]);
+    const currentTheme = memoryGame.theme;
+    const filterPaths = allCardPaths.filter(path => path.includes(`/${currentTheme}`));
 
     let amountDeck = memoryGame.memoryDeck;
-    if (amountDeck && allCardPaths.length >= amountDeck / 2) {
+    if (amountDeck && filterPaths.length >= amountDeck / 2) {
         let half = amountDeck / 2;
 
         for (let index = 0; index < half; index++) {
             // Wir nehmen den Pfad, den Vite gefunden hat
-            let cardPath = allCardPaths[index];
+            let cardPath = filterPaths[index];
             console.log(cardPath);
             memoryGame.cards.push(cardPath);
             memoryGame.cards.push(cardPath);
