@@ -45,7 +45,6 @@ function overlaAktion(event: any) {
 }
 
 
-
 function setTheme() {
     let body = document.querySelector('body');
     body?.classList.add(`theme__${memoryGame.theme}`);
@@ -64,57 +63,45 @@ function renderGameApp() {
 }
 
 
-/* function addCardToDeck() {
-    let amountDeck = memoryGame.memoryDeck;
-    if (amountDeck) {
-        let half = amountDeck / 2;
-        let theme = memoryGame.theme;
-        for (let index = 0; index < half; index++) {
-            if (index <= 9) {
-                let string = `00${index + 1}`;
-                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
-                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
-            } else {
-                let string = `0${index + 1}`;
-                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
-                memoryGame.cards.push(`assets/img/cards/${theme}_${string}_git_icon.svg`);
+function addCardToDeck() {
+    if (memoryGame.cards.length == 0) {
+        let imgPath = generatePath();
+        let amountDeck = memoryGame.memoryDeck;
+        if (amountDeck && imgPath.length >= amountDeck / 2) {
+            let half = amountDeck / 2;
+            for (let index = 0; index < half; index++) {
+                let cardPath = imgPath[index];
+                memoryGame.cards.push(cardPath);
+                memoryGame.cards.push(cardPath);
             }
         }
-    }
-
+    shuffleCards(memoryGame.cards);
     saveLocalStorage();
+    }
+}
 
-} */
 
-
-function addCardToDeck() {
-    // 1. Vite scannt den Ordner (wildcard *)
-    // 'eager: true' sorgt dafür, dass die Daten sofort verfügbar sind
+function generatePath() {
     const modules = import.meta.glob(`./../public/assets/img/cards/**/*.svg`, {
         eager: true,
         import: 'default'
     });
-
-    // 2. Wir extrahieren die Pfade aus dem Objekt in ein Array
     const allCardPaths = Object.keys(modules).map(path => {
         return path.replace(/.*\/public/, '')
     });
-    const currentTheme = memoryGame.theme;
-    const filterPaths = allCardPaths.filter(path => path.includes(`/${currentTheme}`));
+    const filterPaths = allCardPaths.filter(path => path.includes(`/${memoryGame.theme}`));
+    return filterPaths;
+}
 
-    let amountDeck = memoryGame.memoryDeck;
-    if (amountDeck && filterPaths.length >= amountDeck / 2) {
-        let half = amountDeck / 2;
 
-        for (let index = 0; index < half; index++) {
-            // Wir nehmen den Pfad, den Vite gefunden hat
-            let cardPath = filterPaths[index];
-            console.log(cardPath);
-            memoryGame.cards.push(cardPath);
-            memoryGame.cards.push(cardPath);
-        }
+function shuffleCards(array: string[]) {
+    let currentIndex = array.length;
+    while (currentIndex != 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
-    saveLocalStorage();
 }
 
 
