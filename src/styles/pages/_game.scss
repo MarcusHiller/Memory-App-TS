@@ -129,14 +129,13 @@
 
 .card {
     @include mx.size-scaling(var(--card-width), var(--card-height));
-    border-radius: var(--border-radius-card);
-    background-color: transparent;
     &__inner{
         position: relative;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
         transition: all 300ms ease-in-out;
+        
     }
     &__face{
         background: var(--surface-cover);
@@ -144,10 +143,10 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
+        border-radius: var(--border-radius-card);
         &--back{
             background: var(--surface-front);
             transform: rotateY(180deg);
-            
         }
     }
     &__img{
