@@ -12,6 +12,7 @@
 .game-board {
     margin-top: 41px;
     @include mx.size-scaling(1217px);
+
     @include mx.screenHeight(xxl) {
         margin-top: 20px;
     }
@@ -20,7 +21,7 @@
 
 .display-field {
     background-color: var(--surface-header);
-    @include mx.size-scaling($ht: var(--header_heigth), $pd:var(--pading-header));
+    @include mx.size-scaling($ht: var(--header_heigth), $pd: var(--pading-header));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,21 +49,22 @@
         @include mx.size-scaling(29px, 24px);
     }
 
-    &__img-background{
+    &__img-background {
         @include mx.flex-center();
         @include mx.size-scaling(var(--img-div-width), var(--img-div-height), var(--img-div-padding));
         border-radius: var(--img-div-border-radius);
-        
-        &--blue{
+
+        &--blue {
             background-color: #097FC5;
         }
-        
-        &--orange{
+
+        &--orange {
             background-color: #EA6900;
         }
-        &--transparent{
+
+        &--transparent {
             background-color: transparent;
-        } 
+        }
     }
 }
 
@@ -89,7 +91,7 @@
 }
 
 
-.font-aktiv{
+.font-aktiv {
     display: block;
 }
 
@@ -120,6 +122,7 @@
         margin-top: 40px;
         grid-template-columns: auto auto auto auto auto auto;
         gap: 8px;
+
         @include mx.screenHeight(xl) {
             grid-template-columns: auto auto auto auto auto auto auto auto auto;
         }
@@ -129,36 +132,44 @@
 
 .card {
     @include mx.size-scaling(var(--card-width), var(--card-height));
-    &__inner{
+
+    &__inner {
         position: relative;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
         transition: all 300ms ease-in-out;
-        
     }
-    &__face{
+
+    &__face {
         background: var(--surface-cover);
         position: absolute;
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
         border-radius: var(--border-radius-card);
-        &--back{
+
+        &--back {
             background: var(--surface-front);
             transform: rotateY(180deg);
         }
     }
-    &__img{
-        display: var(--card-deck);
+
+    &__img {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+
+        &--front {
+            display: var(--card-deck);
+        }
     }
+
     &:hover {
         animation: shake 0.2s linear infinite;
     }
+
     .is-flipped {
         transform: rotateY(180deg);
     }
@@ -168,7 +179,7 @@
 .modal {
     @include mx.flex-center($gap: 54px);
     @include mx.size-scaling(500px, 253px, 40px);
-    @include mx.font-design($fz:var(--modal-font-size), $fw:var(--modal-font-weight));
+    @include mx.font-design($fz: var(--modal-font-size), $fw: var(--modal-font-weight));
     background-color: var(--surface-modal);
     color: var(--text-modal-primary);
     text-align: center;
@@ -177,7 +188,7 @@
 
 
 .modal-btn-field {
-    @include mx.flex-center($fd:row, $gap: 24px);
+    @include mx.flex-center($fd: row, $gap: 24px);
 }
 
 

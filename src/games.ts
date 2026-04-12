@@ -203,7 +203,7 @@ function singleDeck(i: number) {
         <button id="card${i}" class="card card--hover">
             <div class="card__inner">
                 <div class="card__face card__face--front">
-                    <img class="card__img" src="assets/img/game/da_logo.svg" alt="">
+                    <img class="card__img card__img--front" src="assets/img/game/da_logo.svg" alt="">
                 </div>
                 <div class="card__face card__face--back">
                     <img class="card__img" src="${memoryGame.cards[i]}" alt="">
