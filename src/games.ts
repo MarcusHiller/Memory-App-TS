@@ -1,3 +1,4 @@
+import { setTimeout } from "node:timers/promises";
 import { memoryGame, getFromLocalStorage, saveLocalStorage, resetMemoryGame } from "./DB";
 
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('click', (event) => {
     overlaAktion(event);
     flipCard(event);
+    gamePlay(event);
 })
 
 
@@ -75,8 +77,8 @@ function addCardToDeck() {
                 memoryGame.cards.push(cardPath);
             }
         }
-    shuffleCards(memoryGame.cards);
-    saveLocalStorage();
+        shuffleCards(memoryGame.cards);
+        saveLocalStorage();
     }
 }
 
@@ -137,12 +139,47 @@ function insertPictureHeader() {
 }
 
 
+function gamePlay(event: any) {
+    let playingField = document.querySelector('.playing-field') as HTMLElement;
+    if (playingField) {
+        let selections = playingField.querySelectorAll('[data-selected]');
+        if (selections.length === 2) {
+            let firstCard = selections[0].getAttribute('src');
+            let secondCard = selections[1].getAttribute('src');
+            if (firstCard === secondCard) {
+                console.log("Match");
+
+            } else {
+                resetInvalidCards(selections);
+            }
+        }
+    }
+}
+
+
+function resetInvalidCards(selections: NodeListOf<Element>) {
+    window.setTimeout(() => {
+        selections.forEach((selection) => {
+            selection.removeAttribute('data-selected');
+            let cardInner = selection.closest('.card__inner');
+            if (cardInner) {
+                cardInner.classList.remove('is-flipped');
+            }
+        })
+    }, 1000);
+}
+
+
+
 function flipCard(event: any) {
     let btn = event.target.closest('button');
     if (btn) {
         let cardInner = btn.querySelector('.card__inner');
+        let selection = btn.querySelector('[name="card-img"]');
         if (cardInner) {
             cardInner.classList.toggle('is-flipped');
+            console.log(selection);
+            selection.toggleAttribute('data-selected');
         }
     }
 }
@@ -187,13 +224,13 @@ function gameField() {
 
 function singleDeck(i: number) {
     return `
-        <button id="card${i}" class="card card--hover">
+        <button data-action="playingCard" class="card card--hover">
             <div class="card__inner">
                 <div class="card__face card__face--front">
                     <img class="card__img card__img--front" src="assets/img/game/da_logo.svg" alt="">
                 </div>
                 <div class="card__face card__face--back">
-                    <img class="card__img" src="${memoryGame.cards[i]}" alt="">
+                    <img name="card-img" class="card__img" src="${memoryGame.cards[i]}" alt="">
                 </div>
             </div>
         </button>
