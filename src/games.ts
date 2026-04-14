@@ -147,13 +147,23 @@ function gamePlay(event: any) {
             let firstCard = selections[0].getAttribute('src');
             let secondCard = selections[1].getAttribute('src');
             if (firstCard === secondCard) {
-                console.log("Match");
-
+                match(selections);
             } else {
                 resetInvalidCards(selections);
             }
         }
     }
+}
+
+
+function match(selections: NodeListOf<Element>) {
+    selections.forEach(element => {
+        element.removeAttribute('data-selected');
+        let cardMatch = element.closest('.card__face--back');
+        if (cardMatch) {
+            cardMatch.classList.add('card--match');
+        }
+    });
 }
 
 

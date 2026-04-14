@@ -155,6 +155,10 @@
         }
     }
 
+    &--match{
+        border: var(--border-match);
+    }
+
     &__img {
         position: absolute;
         top: 50%;
