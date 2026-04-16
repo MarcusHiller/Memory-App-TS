@@ -149,8 +149,11 @@ function gamePlay(event: any) {
             let secondCard = selections[1].getAttribute('src');
             if (firstCard === secondCard) {
                 match(selections);
+                countPoints();
+                uptadeScoreDisplay();
             } else {
                 resetInvalidCards(selections);
+                changeCurrentPlayer();
             }
         }
     }
@@ -166,6 +169,27 @@ function match(selections: NodeListOf<Element>) {
             cardMatch.classList.add('card--match');
         }
     });
+}
+
+
+function countPoints() {
+    let aktivPlayer = memoryGame.currentPlayer as keyof typeof memoryGame.points;
+    memoryGame.points[aktivPlayer] += 1;
+    saveLocalStorage();
+}
+
+
+function changeCurrentPlayer() {
+    memoryGame.currentPlayer === "blue"? memoryGame.currentPlayer = "orange" : memoryGame.currentPlayer = "blue";
+    saveLocalStorage();
+}
+
+
+function uptadeScoreDisplay(){
+    let displayScore = document.getElementById(`score-${memoryGame.currentPlayer}`) as HTMLElement;
+    let aktivPLayer = memoryGame.currentPlayer as keyof typeof memoryGame.points;
+    displayScore.innerHTML = "";
+    displayScore.innerHTML = `${memoryGame.points[aktivPLayer]}`;
 }
 
 
@@ -192,7 +216,6 @@ function flipCard(event: any) {
         let selection = btn.querySelector('[name="card-img"]');
         if (cardInner) {
             cardInner.classList.toggle('is-flipped');
-            console.log(selection);
             selection.toggleAttribute('data-selected');
         }
     }
@@ -204,16 +227,16 @@ function gameField() {
     return `
     <header class="display-field">
         <div class="game-info">
-            <section class="status-player">
+            <section id="score-display" class="status-player">
                 <div class="player">
                     <img class="player__img" src="assets/img/game/${headImg.player}blue.svg" alt="">
                     <p class="player__one ${headImg.font}">Blue</p>
-                    <span class="player__one font-aktiv">0</span>
+                    <span id="score-blue" class="player__one font-aktiv">${memoryGame.points.blue}</span>
                 </div>
                 <div class="player">
                     <img class="player__img" src="assets/img/game/${headImg.player}orange.svg" alt="">
                     <p class="player__two ${headImg.font}">Orange</p>
-                    <span class="player__two font-aktiv">0</span>
+                    <span id="score-orange" class="player__two font-aktiv">${memoryGame.points.orange}</span>
                 </div>
             </section>
             <div class="display-player">
