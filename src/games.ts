@@ -144,6 +144,7 @@ function gamePlay(event: any) {
     if (playingField) {
         let selections = playingField.querySelectorAll('[data-selected]');
         if (selections.length === 2) {
+            memoryGame.canFlip = false;
             let firstCard = selections[0].getAttribute('src');
             let secondCard = selections[1].getAttribute('src');
             if (firstCard === secondCard) {
@@ -160,6 +161,7 @@ function match(selections: NodeListOf<Element>) {
     selections.forEach(element => {
         element.removeAttribute('data-selected');
         let cardMatch = element.closest('.card__face--back');
+        memoryGame.canFlip = true;
         if (cardMatch) {
             cardMatch.classList.add('card--match');
         }
@@ -170,6 +172,7 @@ function match(selections: NodeListOf<Element>) {
 function resetInvalidCards(selections: NodeListOf<Element>) {
     window.setTimeout(() => {
         selections.forEach((selection) => {
+            memoryGame.canFlip = true;
             selection.removeAttribute('data-selected');
             let cardInner = selection.closest('.card__inner');
             if (cardInner) {
@@ -182,6 +185,7 @@ function resetInvalidCards(selections: NodeListOf<Element>) {
 
 
 function flipCard(event: any) {
+    if(!memoryGame.canFlip) return;
     let btn = event.target.closest('button');
     if (btn) {
         let cardInner = btn.querySelector('.card__inner');
