@@ -54,7 +54,11 @@ function setTheme() {
 
 
 function setAktivPlayer() {
-    memoryGame.currentPlayer = memoryGame.choosePlayer;
+    if (memoryGame.isInitialStart) {
+       memoryGame.currentPlayer = memoryGame.choosePlayer; 
+       memoryGame.isInitialStart = false;
+       saveLocalStorage();
+    }
 }
 
 
@@ -154,6 +158,7 @@ function gamePlay(event: any) {
             } else {
                 resetInvalidCards(selections);
                 changeCurrentPlayer();
+                changeDisplayCurrentPlayer();
             }
         }
     }
@@ -180,12 +185,29 @@ function countPoints() {
 
 
 function changeCurrentPlayer() {
-    memoryGame.currentPlayer === "blue"? memoryGame.currentPlayer = "orange" : memoryGame.currentPlayer = "blue";
+    memoryGame.currentPlayer === "blue" ? memoryGame.currentPlayer = "orange" : memoryGame.currentPlayer = "blue";
     saveLocalStorage();
 }
 
+function changeDisplayCurrentPlayer() {
+    window.setTimeout(() => {
+        if (memoryGame.theme === "code") {
+        } else {
 
-function uptadeScoreDisplay(){
+            let background = document.getElementById('player-background') as HTMLElement;
+            let blue = "display-player__img-background--blue";
+            let orange = "display-player__img-background--orange";
+            if (background.classList.contains(blue)) {
+                background.classList.replace(blue, orange);
+            } else if (background.classList.contains(orange)) {
+                background.classList.replace(orange, blue);
+            }
+        }
+    }, 1050);
+}
+
+
+function uptadeScoreDisplay() {
     let displayScore = document.getElementById(`score-${memoryGame.currentPlayer}`) as HTMLElement;
     let aktivPLayer = memoryGame.currentPlayer as keyof typeof memoryGame.points;
     displayScore.innerHTML = "";
@@ -194,10 +216,13 @@ function uptadeScoreDisplay(){
 
 
 function resetInvalidCards(selections: NodeListOf<Element>) {
+    selections.forEach((selection) => {
+        selection.removeAttribute('data-selected');
+    })
     window.setTimeout(() => {
         selections.forEach((selection) => {
             memoryGame.canFlip = true;
-            selection.removeAttribute('data-selected');
+            saveLocalStorage();
             let cardInner = selection.closest('.card__inner');
             if (cardInner) {
                 cardInner.classList.remove('is-flipped');
@@ -209,7 +234,7 @@ function resetInvalidCards(selections: NodeListOf<Element>) {
 
 
 function flipCard(event: any) {
-    if(!memoryGame.canFlip) return;
+    if (!memoryGame.canFlip) return;
     let btn = event.target.closest('button');
     if (btn) {
         let cardInner = btn.querySelector('.card__inner');
@@ -241,8 +266,8 @@ function gameField() {
             </section>
             <div class="display-player">
                 <p class="display-player__text">Current Player:</p>
-                <div class="display-player__img-background display-player__img-background--${headImg.backgr}">
-                    <img class="display-player__img" src="assets/img/game/${headImg.center}.svg" alt="">
+                <div id="player-background" class="display-player__img-background display-player__img-background--${headImg.backgr}">
+                    <img id="player-img" class="display-player__img" src="assets/img/game/${headImg.center}.svg" alt="">
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ export let memoryGame:DB = {
     allCecked: 3,
     isChecked:false,
     canFlip: true,
+    isInitialStart: true,
 }
 
 
@@ -42,5 +43,6 @@ export function resetMemoryGame() {
     memoryGame.points.orange = 0;
     memoryGame.allCecked = 3;
     memoryGame.isChecked = false;
-    memoryGame.canFlip= true;
+    memoryGame.canFlip = true;
+    memoryGame.isInitialStart = true;
 }

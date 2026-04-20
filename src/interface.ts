@@ -20,4 +20,5 @@ export interface DB{
     allCecked:number,
     isChecked:boolean,
     canFlip: boolean,
+    isInitialStart: boolean,
 }
