@@ -162,6 +162,7 @@ function gamePlay(event: any) {
             }
         }
     }
+    checkIsGameFinished();
 }
 
 
@@ -231,6 +232,13 @@ function resetInvalidCards(selections: NodeListOf<Element>) {
     }, 1000);
 }
 
+
+function checkIsGameFinished() {
+    let points = (memoryGame.points.blue + memoryGame.points.orange) * 2;
+    if (points == memoryGame.memoryDeck) {
+        console.log("Finish");
+    }
+}
 
 
 function flipCard(event: any) {
