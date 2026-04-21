@@ -211,7 +211,6 @@ function changeDisplayCurrentPlayer() {
     window.setTimeout(() => {
         if (memoryGame.theme === "code") {
         } else {
-
             let background = document.getElementById('player-background') as HTMLElement;
             let blue = "display-player__img-background--blue";
             let orange = "display-player__img-background--orange";
@@ -261,6 +260,8 @@ function checkIsGameFinished() {
 function flipCard(event: any) {
     if (!memoryGame.canFlip) return;
     let btn = event.target.closest('button');
+    let isMatchCard = btn?.querySelector('.card__face--back')?.classList.contains('card--match');
+    if (isMatchCard) return;
     if (btn) {
         let cardInner = btn.querySelector('.card__inner');
         let selection = btn.querySelector('[name="card-img"]');
