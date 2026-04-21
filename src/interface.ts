@@ -9,7 +9,7 @@ export interface ListInput{
 export interface DB{
     currentPlayer: string | undefined,
     memoryDeck: number | undefined,
-    playedCards: [],
+    playedCards: string [],
     cards:string [],
     theme: string | undefined,
     choosePlayer: string | undefined,

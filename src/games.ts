@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGameApp();
     addCardToDeck();
     renderCards();
+    isMidGame();
 })
 
 
@@ -84,6 +85,17 @@ function addCardToDeck() {
         shuffleCards(memoryGame.cards);
         saveLocalStorage();
     }
+}
+
+
+function isMidGame(){
+    memoryGame.playedCards.forEach((ids) => {
+        let card = document.getElementById(ids) as HTMLElement;
+        let cardInner = card.querySelector('.card__inner') as HTMLElement;
+        cardInner.classList.add('is-flipped');
+        let imgInner = card.querySelector('.card__face--back') as HTMLElement;
+        imgInner.classList.add('card--match');
+    });
 }
 
 
@@ -174,6 +186,11 @@ function match(selections: NodeListOf<Element>) {
         if (cardMatch) {
             cardMatch.classList.add('card--match');
         }
+    });
+    selections.forEach(element => {
+        let btn = element.closest('button') as HTMLElement;
+        memoryGame.playedCards.push(btn.id);
+        console.log(btn.id); 
     });
 }
 
@@ -294,7 +311,7 @@ function gameField() {
 
 function singleDeck(i: number) {
     return `
-        <button data-action="playingCard" class="card card--hover">
+        <button id="${i}" data-action="playingCard" class="card card--hover">
             <div class="card__inner">
                 <div class="card__face card__face--front">
                     <img class="card__img card__img--front" src="assets/img/game/da_logo.svg" alt="">
