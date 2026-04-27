@@ -98,7 +98,9 @@
 
 .game-info {
     display: flex;
-    gap: 195px;
+    width: var(--width-game-info);
+    gap: var(--gap-alignment);
+    justify-content: var(--position-current-player);
 }
 
 

@@ -56,9 +56,9 @@ function setTheme() {
 
 function setAktivPlayer() {
     if (memoryGame.isInitialStart) {
-       memoryGame.currentPlayer = memoryGame.choosePlayer; 
-       memoryGame.isInitialStart = false;
-       saveLocalStorage();
+        memoryGame.currentPlayer = memoryGame.choosePlayer;
+        memoryGame.isInitialStart = false;
+        saveLocalStorage();
     }
 }
 
@@ -66,7 +66,14 @@ function setAktivPlayer() {
 function renderGameApp() {
     let playingField = document.querySelector('.game-board') as HTMLElement;
     playingField.innerHTML = "";
-    playingField.innerHTML = gameField();
+    if (memoryGame.theme == "code") {
+        playingField.innerHTML = gameFieldCode();
+    } else {
+        playingField.innerHTML = gameField();
+    }
+    //playingField.innerHTML = gameField();
+
+
 }
 
 
@@ -88,7 +95,7 @@ function addCardToDeck() {
 }
 
 
-function isMidGame(){
+function isMidGame() {
     memoryGame.playedCards.forEach((ids) => {
         let card = document.getElementById(ids) as HTMLElement;
         let cardInner = card.querySelector('.card__inner') as HTMLElement;
@@ -190,7 +197,7 @@ function match(selections: NodeListOf<Element>) {
     selections.forEach(element => {
         let btn = element.closest('button') as HTMLElement;
         memoryGame.playedCards.push(btn.id);
-        console.log(btn.id); 
+        console.log(btn.id);
     });
 }
 
@@ -210,6 +217,10 @@ function changeCurrentPlayer() {
 function changeDisplayCurrentPlayer() {
     window.setTimeout(() => {
         if (memoryGame.theme === "code") {
+            let background = document.getElementById('player-img') as HTMLImageElement;
+            console.log(background);
+            let stringSrc = `assets/img/game/label_${memoryGame.currentPlayer}.svg`;
+            background.src = stringSrc;
         } else {
             let background = document.getElementById('player-background') as HTMLElement;
             let blue = "display-player__img-background--blue";
@@ -253,7 +264,18 @@ function checkIsGameFinished() {
     let points = (memoryGame.points.blue + memoryGame.points.orange) * 2;
     if (points == memoryGame.memoryDeck) {
         console.log("Finish");
+        //cleanGameField();
     }
+    /* if (0 == 0) {
+        cleanGameField();
+    } */
+}
+
+
+function cleanGameField() {
+    let playingField = document.querySelector('.game-board') as HTMLElement;
+    playingField.innerHTML = "";
+    playingField.innerHTML = showWinner();
 }
 
 
@@ -274,6 +296,43 @@ function flipCard(event: any) {
 
 
 function gameField() {
+    let headImg = insertPictureHeader();
+    return `
+    <header class="display-field">
+        <div class="game-info">
+            <section id="score-display" class="status-player">
+                <div class="player">
+                    <img class="player__img" src="assets/img/game/${headImg.player}blue.svg" alt="">
+                    <p class="player__one ${headImg.font}">Blue</p>
+                    <span id="score-blue" class="player__one font-aktiv">${memoryGame.points.blue}</span>
+                </div>
+                <div class="player">
+                    <img class="player__img" src="assets/img/game/${headImg.player}orange.svg" alt="">
+                    <p class="player__two ${headImg.font}">Orange</p>
+                    <span id="score-orange" class="player__two font-aktiv">${memoryGame.points.orange}</span>
+                </div>
+            </section>
+            <div class="display-player">
+                <p class="display-player__text">Current Player:</p>
+                <div id="player-background" class="display-player__img-background display-player__img-background--${headImg.backgr}">
+                    <img id="player-img" class="display-player__img" src="assets/img/game/${headImg.center}.svg" alt="">
+                </div>
+            </div>
+            <div>
+                <button data-action="open" class="btn btn-exit">
+                    <img class="btn-exit__img" src="assets/img/game/exit_item.svg" alt="">
+                    <p class="btn-exit__text">Exit game</p>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section class="playing-field playing-field--grid-${memoryGame.memoryDeck}">
+    </section>
+    `;
+}
+
+
+function gameFieldCode() {
     let headImg = insertPictureHeader();
     return `
     <header class="display-field">
@@ -322,5 +381,32 @@ function singleDeck(i: number) {
                 </div>
             </div>
         </button>
+    `;
+}
+
+
+function showWinner() {
+    let headImg = insertPictureHeader();
+    return `
+        <section>
+            <div>
+                <h2>Game over</h2>
+                <div>
+                    <p>Final score</p>
+                    <section id="score-display" class="status-player">
+                        <div class="player">
+                            <img class="player__img" src="assets/img/game/${headImg.player}blue.svg" alt="">
+                            <p class="player__one ${headImg.font}">Blue</p>
+                            <span id="score-blue" class="player__one font-aktiv">${memoryGame.points.blue}</span>
+                        </div>
+                        <div class="player">
+                            <img class="player__img" src="assets/img/game/${headImg.player}orange.svg" alt="">
+                            <p class="player__two ${headImg.font}">Orange</p>
+                            <span id="score-orange" class="player__two font-aktiv">${memoryGame.points.orange}</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
     `;
 }
