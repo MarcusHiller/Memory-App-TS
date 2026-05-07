@@ -74,7 +74,7 @@
         --border-radius-header: 10px;
         --alignment-current-player: center;
         --position-current-player: space-between;
-        --width-game-info: auto;
+        --width-game-info: 100%;
         --gap-alignment: 195px;
 
 
@@ -112,8 +112,9 @@
         // hover
         --border-btn-exit-hov: 0px;
         --border-color-btn-exit-hov: none;
-        --surface-modal-btn-exit-hov: #F3832D;
+        --surface-btn-exit-hov: #F3832D;
         --text-btn-exit-hov: #FFFFFF;
         --border-btn-shadow-exit-hov: 3px 3px 5px 0px #2F2E2E33;
+        --hidden: none;
     }
 }

@@ -19,7 +19,7 @@
     }
 
     &__text {
-        @include mx.font-design($fz: 40px, $fw: 700, $ffam:'Red Rose');
+        @include mx.font-design($fz: 40px, $fw: 700, $ffam: 'Red Rose');
     }
 
     &__arrow {
@@ -61,7 +61,7 @@
     }
 
     &__text {
-        @include mx.font-design($fz: 20px, $fw: 700, $ffam:'Red Rose');
+        @include mx.font-design($fz: 20px, $fw: 700, $ffam: 'Red Rose');
     }
 }
 
@@ -91,7 +91,9 @@
 
 // Game page
 .btn-exit {
-    @include mx.size-scaling($ht:var(--height-btn-exit), $pd: var(--padding-btn-exit));
+    @include mx.size-scaling(
+        /* $ht:var(--height-btn-exit) */
+        $pd: var(--padding-btn-exit));
     gap: 10px;
     background-color: var(--surface-btn-exit);
     color: var(--text-btn-exit);
@@ -107,7 +109,13 @@
     }
 
     &:hover {
-        box-shadow: var(--border-btn-exit-hov);
+        color: var(--text-btn-exit-hov);
+        box-shadow: var(--border-btn-shadow-back-hov);
+        background-color: var(--surface-btn-exit-hov);
+        border: var(--border-btn-exit-hov) solid var(--border-color-btn-exit-hov);
+        .btn-exit__img {
+                color: var(--img-exit);
+        }
     }
 }
 
@@ -117,10 +125,11 @@
     background-color: var(--surface-modal-btn-back);
     color: var(--text-modal-btn-back);
     @include mx.size-scaling($pd: var(--padding-btn-back));
-    @include mx.font-design($fz:var(--font-size-btn-back),$fw:var(--font-weight-btn-back));
+    @include mx.font-design($fz: var(--font-size-btn-back), $fw: var(--font-weight-btn-back));
     border: var(--border-btn-back) solid var(--border-color-btn-back);
     border-radius: var(--border-radius-btn-exit);
-    &:hover{
+
+    &:hover {
         color: var(--text-modal-btn-back-hov);
         box-shadow: var(--border-btn-shadow-back-hov);
         background-color: var(--surface-modal-btn-back-hov);
@@ -137,6 +146,7 @@
     border: var(--border-btn-quit) solid var(--border-color-quit);
     border-radius: var(--border-radius-quit);
     @include mx.font-design(var(--font-size-btn-quit), var(--font-weight-btn-quit));
+
     &:hover {
         color: var(--text-modal-btn-quit-hov);
         box-shadow: var(--border-btn-shadow-qiut-hov);

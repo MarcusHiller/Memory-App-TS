@@ -74,7 +74,7 @@
         --border-radius-header: 10px;
         --alignment-current-player: center;
         --position-current-player: space-between;
-        --width-game-info: auto;
+        --width-game-info: 100%;
         --gap-alignment: 195px;
 
 
@@ -109,12 +109,14 @@
         --padding-btn-exit: 12px 20px;
         --size-width-btn-exit: 30px;
         --size-height-btn-exit: 30px;
+        --img-exit: #E71C4F;
 
         // hover
         --border-btn-exit-hov: 2px;
         --border-color-btn-exit-hov: #E71C4F;
-        --surface-modal-btn-exit-hov: #ED1B7614;
+        --surface-btn-exit-hov: #ED1B7624;
         --text-btn-exit-hov: #FFFFFF;
-        --border-btn-shadow-exit-hov: 0px 0px 0px 2px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+        --border-btn-shadow-exit-hov: 0px 0px 0px 3px #E71C4F, 3px 3px 5px 0px #2F2E2E33;
+        --hidden: block;
     }
 }

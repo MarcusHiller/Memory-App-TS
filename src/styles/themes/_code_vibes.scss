@@ -101,7 +101,7 @@
         // normal
         --text-btn-exit: #FFFFFF;
         --surface-btn-exit: #86E9D633;
-        --border-btn-exit: 1px solid #4DD5BC;
+        --border-btn-exit: 2px solid #4DD5BC;
         --border-radius-btn-exit: 0px;
         --font-size-btn-exit: 24px;
         --font-weight-btn-exit: 700;
@@ -111,10 +111,11 @@
         --size-height-btn-exit: 30px;
 
         // hover
-        --border-btn-exit-hov: inset 0px 0px 0px 3px #4DD5BC, 4px 4px 6px 0px #4DD5BC33; // shadow
-        --border-color-btn-exit-hov: none;
+        --border-btn-exit-hov: 2px;
+        --border-color-btn-exit-hov: #4DD5BC;
         --surface-btn-exit-hov: #86E9D642;
         --text-btn-exit-hov: #FFFFFF;
-        --border-btn-shadow-exit-hov: 3px 3px 5px 0px #2F2E2E33;
+        --border-btn-shadow-exit-hov:  inset 0px 0px 0px 3px #4DD5BC, 4px 4px 6px 0px #4DD5BC33; // shadow;
+        --hidden: none;
     }
 }
